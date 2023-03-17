@@ -1,0 +1,15 @@
+﻿global using Microsoft.AspNetCore.Http;
+global using Microsoft.Extensions.DependencyInjection;
+global using Newtonsoft.Json;
+global using System.Collections.Specialized;
+global using System.Text;
+global using System.Web;
+global using WWB.Paylink.BaoFooPay.Constants;
+global using WWB.Paylink.BaoFooPay.Domain.Notify;
+global using WWB.Paylink.BaoFooPay.Domain.ReqMemo;
+global using WWB.Paylink.BaoFooPay.Domain.ResResult;
+global using WWB.Paylink.BaoFooPay.Request;
+global using WWB.Paylink.BaoFooPay.Response;
+global using WWB.Paylink.Utility;
+global using WWB.Paylink.Utility.Converter;
+global using WWB.Paylink.Utility.Security;

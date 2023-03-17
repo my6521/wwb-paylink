@@ -5,20 +5,15 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4326A85C-BA11-4629-B88A-70AD513A9448}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWB.Paylink.HsqPay", "src\WWB.Paylink.HsqPay\WWB.Paylink.HsqPay.csproj", "{52098128-AC7C-4F85-82B2-F09E2C273D2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWB.Paylink.BaoFooPay", "src\WWB.Paylink.BaoFooPay\WWB.Paylink.BaoFooPay.csproj", "{52098128-AC7C-4F85-82B2-F09E2C273D2A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{56049E35-80F7-4FA5-9AEF-FD58A47BBBA1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplicationSample", "samples\WebApplicationSample\WebApplicationSample.csproj", "{E1AC81CB-4F2C-41F5-883A-3FC181EC926C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWB.Paylink.Security", "src\WWB.Paylink.Security\WWB.Paylink.Security.csproj", "{C852B227-E5DB-4932-89A5-CFACA8118727}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWB.Paylink.BaoFooTransfer", "src\WWB.Paylink.BaoFooTransfer\WWB.Paylink.BaoFooTransfer.csproj", "{874F62AF-B37C-4D48-982F-9A8F6A27A77D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWB.Paylink.BaofPay", "src\WWB.Paylink.BaofPay\WWB.Paylink.BaofPay.csproj", "{874F62AF-B37C-4D48-982F-9A8F6A27A77D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{887E6305-9081-41E1-87F6-F924103E7506}"
-	ProjectSection(SolutionItems) = preProject
-		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WWB.Paylink.Utility", "src\WWB.Paylink.Utility\WWB.Paylink.Utility.csproj", "{F5DD2373-0F31-4C06-A684-FF675C070606}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,14 +29,14 @@ Global
 		{E1AC81CB-4F2C-41F5-883A-3FC181EC926C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1AC81CB-4F2C-41F5-883A-3FC181EC926C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1AC81CB-4F2C-41F5-883A-3FC181EC926C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C852B227-E5DB-4932-89A5-CFACA8118727}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C852B227-E5DB-4932-89A5-CFACA8118727}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C852B227-E5DB-4932-89A5-CFACA8118727}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C852B227-E5DB-4932-89A5-CFACA8118727}.Release|Any CPU.Build.0 = Release|Any CPU
 		{874F62AF-B37C-4D48-982F-9A8F6A27A77D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{874F62AF-B37C-4D48-982F-9A8F6A27A77D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{874F62AF-B37C-4D48-982F-9A8F6A27A77D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{874F62AF-B37C-4D48-982F-9A8F6A27A77D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5DD2373-0F31-4C06-A684-FF675C070606}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5DD2373-0F31-4C06-A684-FF675C070606}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5DD2373-0F31-4C06-A684-FF675C070606}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5DD2373-0F31-4C06-A684-FF675C070606}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,8 +44,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{52098128-AC7C-4F85-82B2-F09E2C273D2A} = {4326A85C-BA11-4629-B88A-70AD513A9448}
 		{E1AC81CB-4F2C-41F5-883A-3FC181EC926C} = {56049E35-80F7-4FA5-9AEF-FD58A47BBBA1}
-		{C852B227-E5DB-4932-89A5-CFACA8118727} = {4326A85C-BA11-4629-B88A-70AD513A9448}
 		{874F62AF-B37C-4D48-982F-9A8F6A27A77D} = {4326A85C-BA11-4629-B88A-70AD513A9448}
+		{F5DD2373-0F31-4C06-A684-FF675C070606} = {4326A85C-BA11-4629-B88A-70AD513A9448}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CD0B1901-C7B0-4BA1-8578-64234741CDA7}

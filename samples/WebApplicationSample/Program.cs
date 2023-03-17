@@ -1,7 +1,7 @@
-using WWB.Paylink.BaofPay;
-using WWB.Paylink.BaofPay.Extensions;
-using WWB.Paylink.HsqPay;
-using WWB.Paylink.HsqPay.Extensions;
+using WWB.Paylink.BaoFooTransfer;
+using WWB.Paylink.BaoFooTransfer.Extensions;
+using WWB.Paylink.BaoFooPay;
+using WWB.Paylink.BaoFooPay.Extensions;
 
 namespace WebApplicationSample
 {
@@ -18,10 +18,10 @@ namespace WebApplicationSample
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.Configure<HsqPayOptions>(builder.Configuration.GetSection("HsqPayConfig"));
+            builder.Services.Configure<BaoFooPayOptions>(builder.Configuration.GetSection("HsqPayConfig"));
             builder.Services.AddHsqPay();
 
-            builder.Services.Configure<BaofPayOptions>(builder.Configuration.GetSection("BaofPayConfig"));
+            builder.Services.Configure<BaoFooTransOptions>(builder.Configuration.GetSection("BaofPayConfig"));
             builder.Services.AddBaofPay();
 
             var app = builder.Build();

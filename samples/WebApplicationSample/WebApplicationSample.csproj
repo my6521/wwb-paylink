@@ -11,9 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\WWB.Paylink.HsqPay\WWB.Paylink.HsqPay.csproj" />
-    <ProjectReference Include="..\..\src\WWB.Paylink.BaofPay\WWB.Paylink.BaofPay.csproj" />
-    <ProjectReference Include="..\..\src\WWB.Paylink.HsqPay\WWB.Paylink.HsqPay.csproj" />
+    <ProjectReference Include="..\..\src\WWB.Paylink.BaoFooPay\WWB.Paylink.BaoFooPay.csproj" />
+    <ProjectReference Include="..\..\src\WWB.Paylink.BaoFooTransfer\WWB.Paylink.BaoFooTransfer.csproj" />
   </ItemGroup>
 
   <ItemGroup>
