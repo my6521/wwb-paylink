@@ -1,8 +1,4 @@
-﻿using WWB.Paylink.BaoFooPay.Converter;
-using WWB.Paylink.BaoFooPay.Domain.ReqMemo;
-using WWB.Paylink.BaoFooPay.Response;
-
-namespace WWB.Paylink.BaoFooPay.Request
+﻿namespace WWB.Paylink.BaoFooPay.Request
 {
     public class JsapiPayRequest : AbstractRequest, IRequest<JsapiPayResponse>
     {
