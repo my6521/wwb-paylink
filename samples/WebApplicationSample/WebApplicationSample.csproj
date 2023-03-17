@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\WWB.Paylink.HsqPay\WWB.Paylink.HsqPay.csproj" />
+    <ProjectReference Include="..\..\src\WWB.Paylink.BaofPay\WWB.Paylink.BaofPay.csproj" />
+    <ProjectReference Include="..\..\src\WWB.Paylink.HsqPay\WWB.Paylink.HsqPay.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Cert\814000473149_pri.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Cert\814000473149_pub.cer">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Cert\baofoo_pub.cer">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Cert\MANDAO_814000473149_pub.cer">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Cert\m_pri.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

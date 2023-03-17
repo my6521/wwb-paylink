@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+		<PackageId>WWB.Paylink.BaofPay</PackageId>
+		<Version>1.0.0-preview01</Version>
+		<Authors>my6521</Authors>
+		<Description>宝付代付SDK。</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryUrl>https://github.com/my6521/WWB.Paylink.BaofPay</RepositoryUrl>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    </ItemGroup>
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\WWB.Paylink.Security\WWB.Paylink.Security.csproj" />
+    </ItemGroup>
+</Project>
