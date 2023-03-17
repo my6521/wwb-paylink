@@ -15,7 +15,7 @@ jobs:
     - name: 建立.netcore环境
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 6.0.3
+        dotnet-version: 6.0.407
     - name: 安装依赖
       run: dotnet restore
     - name: 构建
