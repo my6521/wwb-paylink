@@ -32,7 +32,7 @@ builder.Services.AddHsqPay();
     private readonly IHsqPayClient _hsqPayClient;
     private readonly HsqPayOptions _hsqPayOptions;
 
-    public WalletController(IHsqPayClient hsqPayClient, HsqPayOptions hsqPayOptions)
+    public HsqPayTestController(IHsqPayClient hsqPayClient, HsqPayOptions hsqPayOptions)
     {
         _hsqPayClient = hsqPayClient;
         _hsqPayOptions = hsqPayOptions;
@@ -43,6 +43,7 @@ builder.Services.AddHsqPay();
     /// 小程序支付
     /// </summary>
     /// <returns></returns>
+    [HttpGet]
     public async Task<IActionResult> AppletPay()
     {
         var body = new AppletPayRequestBizModel
@@ -86,6 +87,10 @@ builder.Services.AddHsqPay();
         return Ok(response);
     }
 
+    /// <summary>
+    /// JSAPI支付
+    /// </summary>
+    /// <returns></returns>
     [HttpGet]
     public async Task<IActionResult> JsapiPay()
     {
@@ -129,7 +134,11 @@ builder.Services.AddHsqPay();
 
         return Ok(response);
     }
-    
+
+    /// <summary>
+    /// APP支付
+    /// </summary>
+    /// <returns></returns>
     [HttpGet]
     public async Task<IActionResult> AppPay()
     {
@@ -168,6 +177,10 @@ builder.Services.AddHsqPay();
         return Ok(response);
     }
 
+    /// <summary>
+    /// 主扫支付
+    /// </summary>
+    /// <returns></returns>
     [HttpGet]
     public async Task<IActionResult> DynamicScanPay()
     {
@@ -206,6 +219,10 @@ builder.Services.AddHsqPay();
         return Ok(response);
     }
 
+    /// <summary>
+    /// 被扫支付
+    /// </summary>
+    /// <returns></returns>
     [HttpGet]
     public async Task<IActionResult> BarcodePay()
     {
@@ -244,6 +261,10 @@ builder.Services.AddHsqPay();
         return Ok(response);
     }
 
+    /// <summary>
+    /// 微信投诉查询
+    /// </summary>
+    /// <returns></returns>
     [HttpGet]
     public async Task<IActionResult> ComplaintQuery()
     {
@@ -264,4 +285,73 @@ builder.Services.AddHsqPay();
 
         return Ok(response);
     }    
+````
+
+第四步 回调构造函数引入IHsqPayNotifyClient和HsqPayOptions
+````c#
+
+  private readonly IHsqPayNotifyClient _client;
+  private readonly IOptions<HsqPayOptions> _optionsAccessor;
+
+  public HsqPayNotifyController(IHsqPayNotifyClient client, IOptions<HsqPayOptions> optionsAccessor)
+  {
+      _client = client;
+      _optionsAccessor = optionsAccessor;
+  }
+  /// <summary>
+  /// 支付回调
+  /// </summary>
+  /// <returns></returns>
+  [HttpPost]
+  public async Task<IActionResult> PayNotify()
+  {
+      try
+      {
+          var notify = await _client.ExecuteAsync<HsqPayTransactionNotify>(HttpContext.Request, _optionsAccessor.Value);
+
+          return HsqPayNotifyResult.TradeHandleSuccess;
+      }
+      catch (Exception ex) { }
+      {
+          return HsqPayNotifyResult.TradeHandleFailure;
+      }
+  }
+
+  /// <summary>
+  /// 退款回调
+  /// </summary>
+  /// <returns></returns>
+  [HttpPost]
+  public async Task<IActionResult> RefundNotify()
+  {
+      try
+      {
+          var notify = await _client.ExecuteAsync<HsqPayRefundNotify>(HttpContext.Request, _optionsAccessor.Value);
+
+          return HsqPayNotifyResult.TradeHandleSuccess;
+      }
+      catch (Exception ex) { }
+      {
+          return HsqPayNotifyResult.TradeHandleFailure;
+      }
+  }
+
+  /// <summary>
+  /// 微信投诉回调
+  /// </summary>
+  /// <returns></returns>
+  [HttpPost]
+  public async Task<IActionResult> ComplaintNotify()
+  {
+      try
+      {
+          var notify = await _client.ExecuteAsync<WeChatPayComplaintNotify>(HttpContext.Request, _optionsAccessor.Value);
+
+          return HsqPayNotifyResult.TradeHandleSuccess;
+      }
+      catch (Exception ex) { }
+      {
+          return HsqPayNotifyResult.TradeHandleFailure;
+      }
+  }
 ````
