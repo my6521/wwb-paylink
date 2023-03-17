@@ -31,31 +31,15 @@ namespace WebApplicationSample.Controllers
             {
                 trans_no = DateTime.Now.ToString("yyyyMMddHHmmss"),
                 trans_money = "1",
-                to_acc_name = "王文兵",
-                to_acc_no = "6214921602437622",
+                to_acc_name = "test",
+                to_acc_no = "test",
                 to_bank_name = "中国光大银行",
                 to_pro_name = "四川省",
                 trans_cnap = "",
                 to_city_name = "成都市",
                 to_acc_dept = "光华支行",
-                trans_card_id = "510321198302092452",
-                trans_mobile = "18981713541",
-                trans_summary = "网银转账",
-                trans_reserved = "生活消费"
-            });
-            reqList.Add(new TransReqData_BF0040001
-            {
-                trans_no = DateTime.Now.AddMinutes(1).ToString("yyyyMMddHHmmss"),
-                trans_money = "2",
-                to_acc_name = "王文兵",
-                to_acc_no = "6214921602437622",
-                to_bank_name = "中国光大银行",
-                to_pro_name = "四川省",
-                trans_cnap = "",
-                to_city_name = "成都市",
-                to_acc_dept = "光华支行",
-                trans_card_id = "510321198302092452",
-                trans_mobile = "18981713541",
+                trans_card_id = "test",
+                trans_mobile = "test",
                 trans_summary = "网银转账",
                 trans_reserved = "生活消费"
             });
