@@ -1,7 +1,11 @@
 ﻿global using Microsoft.AspNetCore.Http;
+global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.Extensions.DependencyInjection;
 global using Newtonsoft.Json;
+global using Newtonsoft.Json.Linq;
 global using System.Collections.Specialized;
+global using System.Net;
+global using System.Security.Cryptography;
 global using System.Text;
 global using System.Web;
 global using System.Xml.Serialization;

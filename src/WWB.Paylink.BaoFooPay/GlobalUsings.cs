@@ -2,6 +2,10 @@
 global using Microsoft.Extensions.DependencyInjection;
 global using Newtonsoft.Json;
 global using System.Collections.Specialized;
+global using System.ComponentModel.DataAnnotations;
+global using System.Net;
+global using System.Security.Cryptography;
+global using System.Security.Cryptography.X509Certificates;
 global using System.Text;
 global using System.Web;
 global using WWB.Paylink.BaoFooPay.Constants;

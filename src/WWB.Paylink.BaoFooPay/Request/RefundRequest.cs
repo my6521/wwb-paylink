@@ -1,4 +1,6 @@
-﻿namespace WWB.Paylink.BaoFooPay.Request
+﻿using WWB.Paylink.BaoFooPay.Response;
+
+namespace WWB.Paylink.BaoFooPay.Request
 {
     public class RefundRequest : AbstractRequest, IRequest<JsapiPayResponse>
     {
