@@ -1,8 +1,14 @@
-﻿namespace WWB.Paylink.BaoFooTransfer.Request
-{ /// <summary>
-  /// 代付交易退款查询
-  /// </summary>
-    public class RefundQueryRequest : AbstractRequest, IRequest<RefundQueryResponse>
+﻿using System.Collections.Generic;
+using WWB.Paylink.BaoFooTransfer.Domain;
+using WWB.Paylink.BaoFooTransfer.Domain.Request;
+using WWB.Paylink.BaoFooTransfer.Response;
+
+namespace WWB.Paylink.BaoFooTransfer.Request
+{
+    /// <summary>
+    /// 代付交易退款查询
+    /// </summary>
+    public class RefundQueryRequest : AbstractRequest, IBaoFooTransRequest<RefundQueryResponse>
     {
         /// <summary>
         /// 业务参数
@@ -16,6 +22,11 @@
 
         public IDictionary<string, string> PrimaryHandler(BaoFooTransOptions options)
         {
+            if (ReqData == null)
+            {
+                throw new BaoFooTransException("查询参数不能为空");
+            }
+
             var dataContent = BuidEncryptData();
 
             return base.PrimaryHandler<object>(dataContent, options);
@@ -25,15 +36,15 @@
         {
             return new
             {
-                trans_content = new TransContent<RefundQueryReqData>()
+                trans_content = new TransContent<RefundQueryReqData>
                 {
-                    trans_reqDatas = new List<TransReqDatas<RefundQueryReqData>>()
-                {
-                    new TransReqDatas<RefundQueryReqData>()
+                    trans_reqDatas = new List<TransReqDatas<RefundQueryReqData>>
                     {
-                        trans_reqData = new List<RefundQueryReqData>{ ReqData }
+                        new TransReqDatas<RefundQueryReqData>
+                        {
+                            trans_reqData = new List<RefundQueryReqData>{ ReqData }
+                        }
                     }
-                }
                 }
             };
         }

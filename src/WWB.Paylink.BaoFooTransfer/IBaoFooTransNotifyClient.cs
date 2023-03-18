@@ -1,4 +1,7 @@
-﻿namespace WWB.Paylink.BaoFooTransfer
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+
+namespace WWB.Paylink.BaoFooTransfer
 {
     public interface IBaoFooTransNotifyClient
     {

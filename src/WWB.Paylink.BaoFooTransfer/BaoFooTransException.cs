@@ -1,4 +1,6 @@
-﻿namespace WWB.Paylink.BaoFooTransfer
+﻿using System;
+
+namespace WWB.Paylink.BaoFooTransfer
 {
     public class BaoFooTransException : Exception
     {

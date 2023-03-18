@@ -1,8 +1,22 @@
-﻿namespace WWB.Paylink.BaoFooPay
+﻿using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web;
+using WWB.Paylink.BaoFooPay.Constants;
+using WWB.Paylink.Utility;
+using WWB.Paylink.Utility.Security;
+
+namespace WWB.Paylink.BaoFooPay
 {
     public class BaoFooPayNotifyClient : IBaoFooPayNotifyClient
     {
-        public async Task<T> ExecuteAsync<T>(HttpRequest request, BaoFooPayOptions options) where T : BaseNotify
+        public async Task<TResponse> ExecuteAsync<TResponse>(HttpRequest request, BaoFooPayOptions options) where TResponse : BaseNotify
         {
             if (request == null)
             {
@@ -27,13 +41,13 @@
                 var parsed = HttpUtility.ParseQueryString(HttpUtility.UrlDecode(content));
                 var json = JsonConvert.SerializeObject(ToDictionary(parsed));
 
-                return await ExecuteAsync<T>(content, options);
+                return await ExecuteAsync<TResponse>(content, options);
             }
 
             throw new BaoFooPayException($"{request.Method} is not Support!");
         }
 
-        public Task<T> ExecuteAsync<T>(string body, BaoFooPayOptions options) where T : BaseNotify
+        public Task<TResponse> ExecuteAsync<TResponse>(string body, BaoFooPayOptions options) where TResponse : BaseNotify
         {
             if (string.IsNullOrEmpty(body))
             {
@@ -50,9 +64,9 @@
                 throw new BaoFooPayException($"options.{nameof(BaoFooPayOptions.Key)} is Empty!");
             }
 
-            var notify = JsonConvert.DeserializeObject<T>(body);
+            var notify = JsonConvert.DeserializeObject<TResponse>(body);
             notify.Body = body;
-            notify.Execute();
+            notify.PrimaryHandler();
 
             CheckNotifySign(notify, options);
 
@@ -66,7 +80,7 @@
                 throw new BaoFooPayException("sign check fail: Body is Empty!");
             }
 
-            var parameters = notify.GetParameters();
+            var parameters = notify.GetSignatureParameters(options);
             if (parameters.Count == 0)
             {
                 throw new BaoFooPayException("sign check fail: Parameters is Empty!");
@@ -77,10 +91,7 @@
                 throw new BaoFooPayException("sign check fail: sign is Empty!");
             }
 
-            //去除sign
-            parameters.Remove(Consts.SIGN);
-
-            var signContent = ToolHelper.GetSignContent(parameters, options.Key);
+            var signContent = ToolHelper.GetSignContent(parameters, options.Key, Consts.SIGN);
 
             if (!SignatureHelper.VerifySignature(options.CerCertificate, signContent, sign))
             {

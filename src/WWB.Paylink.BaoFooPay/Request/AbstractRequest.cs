@@ -1,4 +1,10 @@
-﻿namespace WWB.Paylink.BaoFooPay.Request
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using WWB.Paylink.BaoFooPay.Constants;
+using WWB.Paylink.Utility;
+using WWB.Paylink.Utility.Security;
+
+namespace WWB.Paylink.BaoFooPay.Request
 {
     public abstract class AbstractRequest
     {

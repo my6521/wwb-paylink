@@ -1,6 +1,12 @@
-﻿namespace WWB.Paylink.BaoFooPay.Request
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
+using WWB.Paylink.BaoFooPay.Domain.ReqMemo;
+using WWB.Paylink.BaoFooPay.Response;
+using WWB.Paylink.Utility.Converter;
+
+namespace WWB.Paylink.BaoFooPay.Request
 {
-    public class DynamicScanPayRequest : AbstractRequest, IRequest<DynamicScanPayResponse>
+    public class DynamicScanPayRequest : AbstractRequest, IBaoFooPayRequest<DynamicScanPayResponse>
     {
         #region 属性
 

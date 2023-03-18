@@ -1,9 +1,12 @@
-﻿namespace WWB.Paylink.BaoFooPay
+﻿using Microsoft.AspNetCore.Http;
+using System.Threading.Tasks;
+
+namespace WWB.Paylink.BaoFooPay
 {
     public interface IBaoFooPayNotifyClient
     {
-        Task<T> ExecuteAsync<T>(HttpRequest request, BaoFooPayOptions options) where T : BaseNotify;
+        Task<TResponse> ExecuteAsync<TResponse>(HttpRequest request, BaoFooPayOptions options) where TResponse : BaseNotify;
 
-        Task<T> ExecuteAsync<T>(string body, BaoFooPayOptions options) where T : BaseNotify;
+        Task<TResponse> ExecuteAsync<TResponse>(string body, BaoFooPayOptions options) where TResponse : BaseNotify;
     }
 }

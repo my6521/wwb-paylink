@@ -1,4 +1,11 @@
-﻿namespace WWB.Paylink.BaoFooTransfer
+﻿using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+using WWB.Paylink.BaoFooTransfer.Parser;
+using WWB.Paylink.Utility;
+using WWB.Paylink.Utility.Security;
+
+namespace WWB.Paylink.BaoFooTransfer
 {
     public class BaoFooTransClient : IBaoFooTransClient
     {
@@ -11,7 +18,7 @@
             _httpClientFactory = httpClientFactory;
         }
 
-        public async Task<T> ExecuteAsync<T>(IRequest<T> request, BaoFooTransOptions options) where T : BaseResponse
+        public async Task<T> ExecuteAsync<T>(IBaoFooTransRequest<T> request, BaoFooTransOptions options) where T : BaseResponse
         {
             if (options == null)
             {
@@ -29,11 +36,13 @@
             var url = request.GetRequestUrl(options.Debug);
             //获取提交类型
             var contentType = request.GetContentType();
-
+            //提交
             var client = _httpClientFactory.CreateClient(Name);
             var (body, isSuccessStatusCode) = await client.PostAsync(url, contentType, txtParams);
-            var parser = new ResponseJsonParser<T>();
+            //解密
             var realContent = RSAHelper.DecryptByCer(body, options.CerCertificate);
+            //反序列化
+            var parser = new ResponseJsonParser<T>();
             var response = parser.Parse(realContent);
 
             return response;

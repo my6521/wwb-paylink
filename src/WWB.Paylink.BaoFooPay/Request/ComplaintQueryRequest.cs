@@ -1,6 +1,10 @@
-﻿namespace WWB.Paylink.BaoFooPay.Request
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
+using WWB.Paylink.BaoFooPay.Response;
+
+namespace WWB.Paylink.BaoFooPay.Request
 {
-    public class ComplaintQueryRequest : AbstractRequest, IRequest<ComplaintQueryResponse>
+    public class ComplaintQueryRequest : AbstractRequest, IBaoFooPayRequest<ComplaintQueryResponse>
     {
         [JsonProperty("beginDate")]
         public string BeginDate { get; set; }

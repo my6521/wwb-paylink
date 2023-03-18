@@ -1,4 +1,6 @@
-﻿namespace WWB.Paylink.BaoFooPay.Notify
+﻿using WWB.Paylink.BaoFooPay.Domain.Notify;
+
+namespace WWB.Paylink.BaoFooPay.Notify
 {
 /// <summary>
 /// 投诉通知回调API

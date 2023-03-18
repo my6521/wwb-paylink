@@ -1,46 +1,56 @@
-﻿namespace WWB.Paylink.BaoFooPay.Domain.ResResult
+﻿using Newtonsoft.Json;
+
+namespace WWB.Paylink.BaoFooPay.Domain.ResResult
 {
     public class BarcodePayResponseResult
     {
         /// <summary>
         /// 商户订单号
         /// </summary>
-        public string transNo { get; set; }
+        [JsonProperty("transNo")]
+        public string TransNo { get; set; }
 
         /// <summary>
         /// 交易订单号
         /// </summary>
-        public string tradeNo { get; set; }
+        [JsonProperty("tradeNo")]
+        public string TradeNo { get; set; }
 
         /// <summary>
         /// 交易金额
         /// </summary>
-        public int orderAmt { get; set; }
+        [JsonProperty("orderAmt")]
+        public int OrderAmt { get; set; }
 
         /// <summary>
         /// orderStatus
         /// </summary>
-        public string orderStatus { get; set; }
+        [JsonProperty("orderStatus")]
+        public string OrderStatus { get; set; }
 
         /// <summary>
         /// 完成时间
         /// </summary>
-        public string finishedDate { get; set; }
+        [JsonProperty("finishedDate")]
+        public string FinishedDate { get; set; }
 
         /// <summary>
         /// 错误码
         /// </summary>
-        public string respCode { get; set; }
+        [JsonProperty("respCode")]
+        public string RespCode { get; set; }
 
         /// <summary>
         /// 错误信息
         /// </summary>
-        public string respMsg { get; set; }
+        [JsonProperty("respMsg")]
+        public string RespMsg { get; set; }
 
         /// <summary>
         /// 预支付交易会话标识
         /// </summary>
-        public string qrCode { get; set; }
+        [JsonProperty("qrCode")]
+        public string QrCode { get; set; }
 
         /// <summary>
         /// 第三方支付流水号
@@ -48,7 +58,8 @@
         /// <remarks>
         /// 支付宝 微信 银联等第三方支付返回的流水号
         /// </remarks>
-        public string payOrderNo { get; set; }
+        [JsonProperty("payOrderNo")]
+        public string PayOrderNo { get; set; }
 
         /// <summary>
         /// 第三方支付支付方式
@@ -56,7 +67,8 @@
         /// <remarks>
         /// 支付宝 微信 银联等第三方支付返回的支付方式如 余额 花呗 银行卡信用卡等 取值详见支付宝微信文档
         /// </remarks>
-        public string fundChannel { get; set; }
+        [JsonProperty("fundChannel")]
+        public string RundChannel { get; set; }
 
         /// <summary>
         /// 第三方支付银行编码/借贷标识
@@ -64,6 +76,7 @@
         /// <remarks>
         /// 支付宝 微信 银联等第三方支付返回的银行编码/借贷标识取值详见支付宝微信文档
         /// </remarks>
-        public string fundBankCode { get; set; }
+        [JsonProperty("fundBankCode")]
+        public string FundBankCode { get; set; }
     }
 }

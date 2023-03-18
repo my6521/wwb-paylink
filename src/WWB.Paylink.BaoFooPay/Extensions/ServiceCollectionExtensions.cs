@@ -1,4 +1,6 @@
-﻿namespace WWB.Paylink.BaoFooPay.Extensions
+﻿using Microsoft.Extensions.DependencyInjection;
+
+namespace WWB.Paylink.BaoFooPay.Extensions
 {
 public static class ServiceCollectionExtensions
 {

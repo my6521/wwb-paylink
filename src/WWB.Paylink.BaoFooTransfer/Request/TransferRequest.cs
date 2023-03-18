@@ -1,9 +1,15 @@
-﻿namespace WWB.Paylink.BaoFooTransfer.Request
+﻿using System.Collections.Generic;
+using System.Linq;
+using WWB.Paylink.BaoFooTransfer.Domain;
+using WWB.Paylink.BaoFooTransfer.Domain.Request;
+using WWB.Paylink.BaoFooTransfer.Response;
+
+namespace WWB.Paylink.BaoFooTransfer.Request
 {
     /// <summary>
     /// 代付交易接口
     /// </summary>
-    public class TransferRequest : AbstractRequest, IRequest<TransferResponse>
+    public class TransferRequest : AbstractRequest, IBaoFooTransRequest<TransferResponse>
     {
         /// <summary>
         /// 业务参数
@@ -17,6 +23,10 @@
 
         public IDictionary<string, string> PrimaryHandler(BaoFooTransOptions options)
         {
+            if (!DataList.Any())
+            {
+                throw new BaoFooTransException("代付交易至少需要一条交易数据");
+            }
             if (DataList.Count > 5)
             {
                 throw new BaoFooTransException("代付交易一次处理的请求不能超过5条");
@@ -34,12 +44,12 @@
                 trans_content = new TransContent<TransReqData>()
                 {
                     trans_reqDatas = new List<TransReqDatas<TransReqData>>()
-                {
-                    new TransReqDatas<TransReqData>()
                     {
-                        trans_reqData = DataList
+                        new TransReqDatas<TransReqData>()
+                        {
+                            trans_reqData = DataList
+                        }
                     }
-                }
                 }
             };
         }

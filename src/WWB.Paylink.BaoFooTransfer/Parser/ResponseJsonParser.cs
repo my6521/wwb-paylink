@@ -1,30 +1,33 @@
-﻿namespace WWB.Paylink.BaoFooTransfer.Parser
+﻿using System;
+using Newtonsoft.Json;
+
+namespace WWB.Paylink.BaoFooTransfer.Parser
 {
     public class ResponseJsonParser<T> where T : BaseResponse
-{
-    public T Parse(string body)
     {
-        T result = null;
-        try
+        public T Parse(string body)
         {
-            if (body.StartsWith("{") && body.EndsWith("}"))
+            T result = null;
+            try
             {
-                result = JsonConvert.DeserializeObject<T>(body);
+                if (body.StartsWith("{") && body.EndsWith("}"))
+                {
+                    result = JsonConvert.DeserializeObject<T>(body);
+                }
             }
-        }
-        catch
-        {
-        }
+            catch
+            {
+            }
 
-        if (result == null)
-        {
-            result = Activator.CreateInstance<T>();
+            if (result == null)
+            {
+                result = Activator.CreateInstance<T>();
+            }
+
+            result.Body = body;
+            result.Execute();
+
+            return result;
         }
-
-        result.Body = body;
-        result.Execute();
-
-        return result;
     }
-}
 }

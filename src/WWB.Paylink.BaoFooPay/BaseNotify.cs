@@ -1,6 +1,11 @@
-﻿namespace WWB.Paylink.BaoFooPay
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using WWB.Paylink.BaoFooPay.Constants;
+
+namespace WWB.Paylink.BaoFooPay
 {
-    public abstract class BaseNotify
+    public abstract class BaseNotify : ISignature
     {
         [JsonProperty("method")]
         public string Method { get; set; }
@@ -25,23 +30,23 @@
 
         [JsonIgnore] public string Body { get; set; }
 
-        internal virtual IDictionary<string, string> GetParameters()
+        public IDictionary<string, string> GetSignatureParameters(BaoFooPayOptions options)
         {
             var parameters = new Dictionary<string, string>
-        {
-            {"method", Method},
-            {"version", Version},
-            {"format", Format},
-            {"merchantNo", MerchantNo},
-            {"signType", SignType},
-            {"signContent", SignContent},
-            {Consts.SIGN, Sign}
-        };
+            {
+                {"method", Method},
+                {"version", Version},
+                {"format", Format},
+                {"merchantNo", MerchantNo},
+                {"signType", SignType},
+                {"signContent", SignContent},
+                {Consts.SIGN, Sign}
+            };
 
             return parameters;
         }
 
-        public abstract void Execute();
+        public abstract void PrimaryHandler();
     }
 
     public abstract class BaseNotify<TResult> : BaseNotify
@@ -56,7 +61,7 @@
         /// 执行
         /// </summary>
         /// <exception cref="ArgumentNullException"></exception>
-        public override void Execute()
+        public override void PrimaryHandler()
         {
             if (string.IsNullOrWhiteSpace(SignContent)) throw new ArgumentNullException(nameof(SignContent));
 

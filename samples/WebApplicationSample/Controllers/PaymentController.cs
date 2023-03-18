@@ -20,6 +20,10 @@ namespace WebApplicationSample.Controllers
             _optionsAccessor = optionsAccessor;
         }
 
+        /// <summary>
+        /// 小程序支付
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> AppletPay()
         {
@@ -35,26 +39,21 @@ namespace WebApplicationSample.Controllers
                 Extend = "自定义字段",
                 Memo = new AppletPayRequestMemo()
                 {
-                    paylimit = "balance",
-                    timeExpire = "",
-                    appid = "wxb63c89abb9243ad0",
-                    openid = "oUpF8uMuAJO_M2pxb1Q9zNjWeS6o",
-                    spbillCreateIp = "172.22.11.2",
-                    latitude = "",
-                    longitude = "116.397128",
-                    appVersion = "39.916527",
-                    areaInfo = "",
-                    deviceNo = "",
-                    deviceType = ""
+                    PayLimit = "balance",
+                    TimeExpire = "",
+                    AppId = "wxb63c89abb9243ad0",
+                    OpenId = "oUpF8uMuAJO_M2pxb1Q9zNjWeS6o",
+                    SpbillCreateIp = "172.22.11.2",
+                    Latitude = "",
+                    Longitude = "116.397128",
+                    AppVersion = "39.916527",
+                    AreaInfo = "",
+                    DeviceNo = "",
+                    DeviceType = ""
                 }
             };
 
             var response = await _client.ExecuteAsync(request, _optionsAccessor.Value);
-
-            if (response.Success)
-            {
-                //成功
-            }
 
             return Ok(response);
         }
@@ -74,20 +73,15 @@ namespace WebApplicationSample.Controllers
                 Extend = "自定义字段",
                 Memo = new AppPayRequestMemo()
                 {
-                    paylimit = "balance",
-                    timeExpire = "",
-                    spbillCreateIp = "172.22.11.2",
-                    latitude = "",
-                    longitude = "116.397128",
+                    PayLimit = "balance",
+                    TimeExpire = "",
+                    SpbillCreateIp = "172.22.11.2",
+                    Latitude = "",
+                    Longitude = "116.397128",
                 }
             };
 
             var response = await _client.ExecuteAsync(request, _optionsAccessor.Value);
-
-            if (response.Success)
-            {
-                //成功
-            }
 
             return Ok(response);
         }
@@ -107,26 +101,21 @@ namespace WebApplicationSample.Controllers
                 Extend = "自定义字段",
                 Memo = new JsapiPayRequestMemo()
                 {
-                    paylimit = "balance",
-                    timeExpire = "",
-                    appid = "wxb63c89abb9243ad0",
-                    openid = "oUpF8uMuAJO_M2pxb1Q9zNjWeS6o",
-                    spbillCreateIp = "172.22.11.2",
-                    latitude = "",
-                    longitude = "116.397128",
-                    appVersion = "39.916527",
-                    areaInfo = "",
-                    deviceNo = "",
-                    deviceType = ""
+                    PayLimit = "balance",
+                    TimeExpire = "",
+                    AppId = "wxb63c89abb9243ad0",
+                    OpenId = "oUpF8uMuAJO_M2pxb1Q9zNjWeS6o",
+                    SpbillCreateIp = "172.22.11.2",
+                    Latitude = "",
+                    Longitude = "116.397128",
+                    AppVersion = "39.916527",
+                    AreaInfo = "",
+                    DeviceNo = "",
+                    DeviceType = ""
                 }
             };
 
             var response = await _client.ExecuteAsync(request, _optionsAccessor.Value);
-
-            if (response.Success)
-            {
-                //成功
-            }
 
             return Ok(response);
         }
@@ -146,20 +135,15 @@ namespace WebApplicationSample.Controllers
                 Extend = "自定义字段",
                 Memo = new BarcodePayRequestMemo()
                 {
-                    paylimit = "balance",
-                    timeExpire = "",
-                    spbillCreateIp = "172.22.11.2",
-                    latitude = "",
-                    longitude = "116.397128",
+                    PayLimit = "balance",
+                    TimeExpire = "",
+                    SpbillCreateIp = "172.22.11.2",
+                    Latitude = "",
+                    Longitude = "116.397128",
                 }
             };
 
             var response = await _client.ExecuteAsync(request, _optionsAccessor.Value);
-
-            if (response.Success)
-            {
-                //成功
-            }
 
             return Ok(response);
         }
@@ -179,20 +163,15 @@ namespace WebApplicationSample.Controllers
                 Extend = "自定义字段",
                 Memo = new DynamicScanPayRequestMemo()
                 {
-                    paylimit = "balance",
-                    timeExpire = "",
-                    spbillCreateIp = "172.22.11.2",
-                    latitude = "",
-                    longitude = "116.397128",
+                    PayLimit = "balance",
+                    TimeExpire = "",
+                    SpbillCreateIp = "172.22.11.2",
+                    Latitude = "",
+                    Longitude = "116.397128",
                 }
             };
 
             var response = await _client.ExecuteAsync(request, _optionsAccessor.Value);
-
-            if (response.Success)
-            {
-                //成功
-            }
 
             return Ok(response);
         }

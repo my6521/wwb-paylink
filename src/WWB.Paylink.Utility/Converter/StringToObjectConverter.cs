@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using System;
 
 namespace WWB.Paylink.Utility.Converter
 {
@@ -6,12 +7,12 @@ namespace WWB.Paylink.Utility.Converter
     {
         public override bool CanWrite { get; } = false;
 
-        public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             throw new NotImplementedException();
         }
 
-        public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             return JsonConvert.DeserializeObject(reader.Value.ToString(), objectType);
         }

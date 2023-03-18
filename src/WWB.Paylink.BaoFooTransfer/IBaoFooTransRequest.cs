@@ -1,6 +1,8 @@
-﻿namespace WWB.Paylink.BaoFooPay
+﻿using System.Collections.Generic;
+
+namespace WWB.Paylink.BaoFooTransfer
 {
-    public interface IRequest<T> where T : BaseResponse
+    public interface IBaoFooTransRequest<T> where T : BaseResponse
     {
         /// <summary>
         /// 获取请求地址
@@ -20,6 +22,6 @@
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        IDictionary<string, string> PrimaryHandler(BaoFooPayOptions options);
+        IDictionary<string, string> PrimaryHandler(BaoFooTransOptions options);
     }
 }

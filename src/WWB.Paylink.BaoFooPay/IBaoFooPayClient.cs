@@ -1,7 +1,9 @@
-﻿namespace WWB.Paylink.BaoFooPay
+﻿using System.Threading.Tasks;
+
+namespace WWB.Paylink.BaoFooPay
 {
     public interface IBaoFooPayClient
     {
-        Task<T> ExecuteAsync<T>(IRequest<T> request, BaoFooPayOptions options) where T : BaseResponse;
+        Task<TResponse> ExecuteAsync<TResponse>(IBaoFooPayRequest<TResponse> request, BaoFooPayOptions options) where TResponse : BaseResponse;
     }
 }

@@ -1,54 +1,67 @@
-﻿namespace WWB.Paylink.BaoFooPay.Domain.ResResult
+﻿using Newtonsoft.Json;
+
+namespace WWB.Paylink.BaoFooPay.Domain.ResResult
 {
     public class RefundQueryResponseResult
-    {  /// <summary>
-       /// 商户号
-       /// </summary>
-        public string merchantNo { get; set; }
+    {
+        /// <summary>
+        /// 商户号
+        /// </summary>
+        [JsonProperty("merchantNo")]
+        public string MerchantNo { get; set; }
 
         /// <summary>
         /// 商户订单号
         /// </summary>
-        public string transNo { get; set; }
+        [JsonProperty("transNo")]
+        public string TransNo { get; set; }
 
         /// <summary>
         /// 原商户订单号
         /// </summary>
-        public string origTransNo { get; set; }
+        [JsonProperty("origTransNo")]
+        public string OrigTransNo { get; set; }
 
         /// <summary>
         /// 交易订单号
         /// </summary>
-        public string tradeNo { get; set; }
+        [JsonProperty("tradeNo")]
+        public string TradeNo { get; set; }
 
         /// <summary>
         /// 退款金额
         /// </summary>
-        public int orderAmt { get; set; }
+        [JsonProperty("orderAmt")]
+        public int OrderAmt { get; set; }
 
         /// <summary>
         /// 退款状态
         /// </summary>
-        public string orderStatus { get; set; }
+        [JsonProperty("orderStatus")]
+        public string OrderStatus { get; set; }
 
         /// <summary>
         /// 完成时间
         /// </summary>
-        public string finishedDate { get; set; }
+        [JsonProperty("finishedDate")]
+        public string FinishedDate { get; set; }
 
         /// <summary>
         /// 响应码
         /// </summary>
-        public string respCode { get; set; }
+        [JsonProperty("respCode")]
+        public string RespCode { get; set; }
 
         /// <summary>
         /// 响应描述
         /// </summary>
-        public string respMsg { get; set; }
+        [JsonProperty("respMsg")]
+        public string RespMsg { get; set; }
 
         /// <summary>
         /// 附加字段
         /// </summary>
-        public string extend { get; set; }
+        [JsonProperty("extend")]
+        public string Extend { get; set; }
     }
 }

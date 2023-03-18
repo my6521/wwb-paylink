@@ -1,4 +1,7 @@
-﻿using WWB.Paylink.BaoFooTransfer.Constants;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
+using WWB.Paylink.BaoFooTransfer.Constants;
+using WWB.Paylink.Utility;
 using WWB.Paylink.Utility.Security;
 
 namespace WWB.Paylink.BaoFooTransfer.Request

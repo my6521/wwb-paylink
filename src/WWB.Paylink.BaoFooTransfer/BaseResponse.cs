@@ -1,4 +1,6 @@
-﻿namespace WWB.Paylink.BaoFooTransfer
+﻿using Newtonsoft.Json;
+
+namespace WWB.Paylink.BaoFooTransfer
 {
     public abstract class BaseResponse
     {

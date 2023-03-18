@@ -18,17 +18,23 @@
         public string Key { get; set; }
 
         /// <summary>
-        /// 商户私钥。可为 证书文件路径、证书文件的Base64编码。
+        /// 商户私钥证书路径。
         /// </summary>
         public string PfxCertificate { get; set; }
 
         /// <summary>
-        /// 商户私钥密码
+        /// 商户证书密码
         /// </summary>
         public string Password { get; set; }
 
+        /// <summary>
+        /// 平台公钥证书路径
+        /// </summary>
         public string CerCertificate { get; set; }
 
+        /// <summary>
+        /// 是否测试环境
+        /// </summary>
         public bool Debug { get; set; }
     }
 }

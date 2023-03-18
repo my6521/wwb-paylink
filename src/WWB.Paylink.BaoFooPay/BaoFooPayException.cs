@@ -1,4 +1,6 @@
-﻿namespace WWB.Paylink.BaoFooPay
+﻿using System;
+
+namespace WWB.Paylink.BaoFooPay
 {
     public class BaoFooPayException : Exception
     {

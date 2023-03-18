@@ -1,4 +1,16 @@
-﻿namespace WWB.Paylink.BaoFooTransfer
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using WWB.Paylink.BaoFooTransfer.Parser;
+
+namespace WWB.Paylink.BaoFooTransfer
 {
     public class BaoFooTransNotifyClient : IBaoFooTransNotifyClient
     {

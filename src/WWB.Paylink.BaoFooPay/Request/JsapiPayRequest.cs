@@ -1,6 +1,12 @@
-﻿namespace WWB.Paylink.BaoFooPay.Request
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
+using WWB.Paylink.BaoFooPay.Domain.ReqMemo;
+using WWB.Paylink.BaoFooPay.Response;
+using WWB.Paylink.Utility.Converter;
+
+namespace WWB.Paylink.BaoFooPay.Request
 {
-    public class JsapiPayRequest : AbstractRequest, IRequest<JsapiPayResponse>
+    public class JsapiPayRequest : AbstractRequest, IBaoFooPayRequest<JsapiPayResponse>
     {
         #region 属性
 

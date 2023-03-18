@@ -13,7 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplicationSample", "sam
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWB.Paylink.BaoFooTransfer", "src\WWB.Paylink.BaoFooTransfer\WWB.Paylink.BaoFooTransfer.csproj", "{874F62AF-B37C-4D48-982F-9A8F6A27A77D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WWB.Paylink.Utility", "src\WWB.Paylink.Utility\WWB.Paylink.Utility.csproj", "{F5DD2373-0F31-4C06-A684-FF675C070606}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWB.Paylink.Utility", "src\WWB.Paylink.Utility\WWB.Paylink.Utility.csproj", "{F5DD2373-0F31-4C06-A684-FF675C070606}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{F1732E5E-4D5A-4C6D-863E-CB83FE0710A7}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

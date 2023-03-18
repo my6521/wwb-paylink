@@ -1,8 +1,10 @@
-﻿using WWB.Paylink.BaoFooPay.Response;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
+using WWB.Paylink.BaoFooPay.Response;
 
 namespace WWB.Paylink.BaoFooPay.Request
 {
-    public class TransactionQueryRequest : AbstractRequest, IRequest<TransactionQueryResponse>
+    public class TransactionQueryRequest : AbstractRequest, IBaoFooPayRequest<TransactionQueryResponse>
     {
         /// <summary>
         /// 商户订单号
