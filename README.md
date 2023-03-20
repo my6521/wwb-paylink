@@ -12,8 +12,8 @@ API接口文档
 
 |包类型|名称|版本|描述|
 |:----:|:----:|:----:|:---:|
-| [![nuget](https://shields.io/badge/-Nuget-yellow?cacheSeconds=604800)](https://www.nuget.org/packages/WWB.Paylink.BaoFooPay/) | WWB.Paylink.BaoFooPay  |  [![nuget](https://img.shields.io/nuget/v/WWB.Paylink.BaoFooPay.svg?cacheSeconds=10800)](https://www.nuget.org/packages/WWB.Paylink.BaoFooPay/) | 宝付收款|
-| [![nuget](https://shields.io/badge/-Nuget-yellow?cacheSeconds=604800)](https://www.nuget.org/packages/WWB.Paylink.BaoFooTransfer/) | WWB.Paylink.BaoFooTransfer  |  [![nuget](https://img.shields.io/nuget/v/WWB.Paylink.BaoFooTransfer.svg?cacheSeconds=10800)](https://www.nuget.org/packages/WWB.Paylink.BaoFooTransfer/) | 宝付代付|
+| [![nuget](https://shields.io/badge/-Nuget-yellow?cacheSeconds=60)](https://www.nuget.org/packages/WWB.Paylink.BaoFooPay/) | WWB.Paylink.BaoFooPay  |  [![nuget](https://img.shields.io/nuget/v/WWB.Paylink.BaoFooPay.svg?cacheSeconds=60)](https://www.nuget.org/packages/WWB.Paylink.BaoFooPay/) | 宝付收款|
+| [![nuget](https://shields.io/badge/-Nuget-yellow?cacheSeconds=60)](https://www.nuget.org/packages/WWB.Paylink.BaoFooTransfer/) | WWB.Paylink.BaoFooTransfer  |  [![nuget](https://img.shields.io/nuget/v/WWB.Paylink.BaoFooTransfer.svg?cacheSeconds=60)](https://www.nuget.org/packages/WWB.Paylink.BaoFooTransfer/) | 宝付代付|
 
 
 第一步 在appsettings.json添加宝付支付的选项
