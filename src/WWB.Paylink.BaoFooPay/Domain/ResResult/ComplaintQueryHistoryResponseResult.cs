@@ -1,9 +1,9 @@
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace WWB.Paylink.BaoFooPay.Domain.ResResult
 {
-    public class ComplaintQueryResponseResult
+    public class ComplaintQueryHistoryResponseResult
     {
         /// <summary>
         /// 分页开始位置
@@ -21,6 +21,6 @@ namespace WWB.Paylink.BaoFooPay.Domain.ResResult
         /// 投诉信息详情
         /// </summary>
         [JsonProperty("data")]
-        public List<ComplaintQueryResponseResultData> Data { get; set; }
+        public List<ComplaintQueryHistoryResponseResultData> Data { get; set; }
     }
 }
