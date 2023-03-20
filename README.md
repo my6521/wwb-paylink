@@ -32,7 +32,7 @@ API接口文档
 ````c#
 
  builder.Services.Configure<BaoFooPayOptions>(builder.Configuration.GetSection("BaofooPayConfig"));
- builder.Services.AddBaoFooPay();
+ builder.Services.AddBaoFooPayClient();
 
 ````
 
