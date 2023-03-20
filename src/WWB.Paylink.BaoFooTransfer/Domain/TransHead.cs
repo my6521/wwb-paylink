@@ -4,7 +4,7 @@
     {
         public string return_code { get; set; }
         public string return_msg { get; set; }
-        public string trans_count { get; set; }
-        public string trans_totalMoney { get; set; }
+        public int? trans_count { get; set; }
+        public decimal? trans_totalMoney { get; set; }
     }
 }

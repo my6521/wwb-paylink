@@ -1,6 +1,6 @@
 ﻿namespace WWB.Paylink.BaoFooTransfer.Domain.Response
 {
-    public class TransRespData
+    public class TransSplitRespData
     {
         public string trans_orderid { get; set; }
         public string trans_batchid { get; set; }

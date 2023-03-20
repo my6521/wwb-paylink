@@ -5,7 +5,7 @@
         public string trans_orderid { get; set; }
         public string trans_batchid { get; set; }
         public string trans_no { get; set; }
-        public string trans_money { get; set; }
+        public decimal trans_money { get; set; }
         public string to_acc_name { get; set; }
         public string to_acc_no { get; set; }
         public string to_acc_dept { get; set; }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
@@ -6,8 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
 using WWB.Paylink.BaoFooTransfer.Parser;
 
 namespace WWB.Paylink.BaoFooTransfer
@@ -39,7 +39,7 @@ namespace WWB.Paylink.BaoFooTransfer
                 var parsed = HttpUtility.ParseQueryString(HttpUtility.UrlDecode(content));
                 var json = JsonConvert.SerializeObject(ToDictionary(parsed));
 
-                return await ExecuteAsync<T>(content, options);
+                return await ExecuteAsync<T>(json, options);
             }
 
             throw new BaoFooTransException($"{request.Method} is not Support!");

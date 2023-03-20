@@ -41,7 +41,7 @@ namespace WWB.Paylink.BaoFooPay
                 var parsed = HttpUtility.ParseQueryString(HttpUtility.UrlDecode(content));
                 var json = JsonConvert.SerializeObject(ToDictionary(parsed));
 
-                return await ExecuteAsync<TResponse>(content, options);
+                return await ExecuteAsync<TResponse>(json, options);
             }
 
             throw new BaoFooPayException($"{request.Method} is not Support!");

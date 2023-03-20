@@ -30,16 +30,16 @@ namespace WebApplicationSample.Controllers
             reqList.Add(new TransReqData
             {
                 trans_no = DateTime.Now.ToString("yyyyMMddHHmmss"),
-                trans_money = "1",
-                to_acc_name = "test",
-                to_acc_no = "test",
+                trans_money = 1.20m,
+                to_acc_name = "",
+                to_acc_no = "",
                 to_bank_name = "中国光大银行",
                 to_pro_name = "四川省",
                 trans_cnap = "",
                 to_city_name = "成都市",
                 to_acc_dept = "光华支行",
-                trans_card_id = "test",
-                trans_mobile = "test",
+                trans_card_id = "",
+                trans_mobile = "",
                 trans_summary = "网银转账",
                 trans_reserved = "生活消费"
             });
@@ -85,6 +85,36 @@ namespace WebApplicationSample.Controllers
             };
 
             var response = await _client.ExecuteAsync<RefundQueryResponse>(request, _optionsAccessor.Value);
+
+            return Ok(response);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> BF0040004()
+        {
+            var request = new TransferSplitRequest();
+
+            var reqList = new List<TransSplitReqData>();
+
+            reqList.Add(new TransSplitReqData
+            {
+                trans_no = DateTime.Now.ToString("yyyyMMddHHmmss"),
+                trans_money = 1m,
+                to_acc_name = "",
+                to_acc_no = "",
+                to_bank_name = "中国光大银行",
+                to_pro_name = "四川省",
+                to_city_name = "成都市",
+                to_acc_dept = "光华支行",
+                trans_card_id = "",
+                trans_mobile = "",
+                trans_summary = "网银转账",
+                trans_reserved = "生活消费"
+            });
+
+            request.DataList = reqList;
+
+            var response = await _client.ExecuteAsync<TransferSplitResponse>(request, _optionsAccessor.Value);
 
             return Ok(response);
         }
