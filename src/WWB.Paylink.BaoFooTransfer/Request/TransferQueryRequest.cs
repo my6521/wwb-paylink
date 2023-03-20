@@ -18,7 +18,7 @@ namespace WWB.Paylink.BaoFooTransfer.Request
 
         public string GetRequestUrl(bool debug)
         {
-            return debug ? "https://paytest.baofoo.com/baofoo-fopay/pay/BF0040002.do" : "";
+            return debug ? "https://paytest.baofoo.com/baofoo-fopay/pay/BF0040002.do" : "https://public.baofoo.com/baofoo-fopay/pay/BF0040002.do";
         }
 
         public IDictionary<string, string> PrimaryHandler(BaoFooTransOptions options)
