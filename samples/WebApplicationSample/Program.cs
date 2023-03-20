@@ -19,10 +19,10 @@ namespace WebApplicationSample
             builder.Services.AddSwaggerGen();
 
             builder.Services.Configure<BaoFooPayOptions>(builder.Configuration.GetSection("BaofooPayConfig"));
-            builder.Services.AddBaoFooPay();
+            builder.Services.AddBaoFooPayClient();
 
             builder.Services.Configure<BaoFooTransOptions>(builder.Configuration.GetSection("BaoFooTransConfig"));
-            builder.Services.AddBaoFooTransPay();
+            builder.Services.AddBaoFooTransClient();
 
             var app = builder.Build();
 
