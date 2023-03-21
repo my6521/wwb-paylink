@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using WWB.Paylink.Utility.Converter;
 
 namespace WWB.Paylink.BaoFooPay.Domain.ResResult
 {
@@ -50,7 +51,8 @@ namespace WWB.Paylink.BaoFooPay.Domain.ResResult
         /// 预支付交易会话标识
         /// </summary>
         [JsonProperty("qrCode")]
-        public string QrCode { get; set; }
+        [JsonConverter(typeof(StringToObjectConverter))]
+        public AppletPayReponseQrCodeModel QrCode { get; set; }
 
         /// <summary>
         /// 慧收钱上送三方支付的交易订单号
