@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using WWB.Paylink.BaoFooPay;
+using WWB.Paylink.BaoFooPay.Constants;
 using WWB.Paylink.BaoFooPay.Notify;
 
 namespace WebApplicationSample.Controllers
@@ -24,6 +25,12 @@ namespace WebApplicationSample.Controllers
             try
             {
                 var notify = await _client.ExecuteAsync<PaymentNotify>(HttpContext.Request, _optionsAccessor.Value);
+                if (notify.ResultData.OrderStatus == OrderStatus.SUCCESS)
+                {
+                }
+                else if (notify.ResultData.OrderStatus == OrderStatus.FAIL)
+                {
+                }
 
                 return Ok(BaoFooPayNotifyResult.Success);
             }
