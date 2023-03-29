@@ -6,6 +6,9 @@ using WWB.Paylink.BaoFooTransfer.Response;
 
 namespace WWB.Paylink.BaoFooTransfer.Request
 {
+    /// <summary>
+    /// 代付交易拆分
+    /// </summary>
     public class TransferSplitRequest : AbstractRequest, IBaoFooTransRequest<TransferSplitResponse>
     {
         /// <summary>
