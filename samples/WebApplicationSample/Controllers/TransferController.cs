@@ -31,15 +31,15 @@ namespace WebApplicationSample.Controllers
             {
                 TransNo = DateTime.Now.ToString("yyyyMMddHHmmss"),
                 TransMoney = 1.20m,
-                ToAccName = "王文兵",
-                ToAccNo = "6214921602437622",
+                ToAccName = "",
+                ToAccNo = "",
                 ToBankName = "中国光大银行",
                 ToProName = "四川省",
                 TransCnap = "",
                 ToCityName = "成都市",
                 ToAccDept = "光华支行",
-                TransCardId = "510321198302092452",
-                TransMobile = "18981713541",
+                TransCardId = "",
+                TransMobile = "",
                 TransSummary = "网银转账",
                 TransReserved = "生活消费"
             });
