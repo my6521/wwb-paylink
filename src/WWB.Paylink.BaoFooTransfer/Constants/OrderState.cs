@@ -1,4 +1,4 @@
-﻿namespace WWB.Paylink.BaoFooTransfer.Domain
+﻿namespace WWB.Paylink.BaoFooTransfer.Constants
 {
     public static class OrderState
     {
