@@ -40,18 +40,18 @@ namespace WWB.Paylink.BaoFooTransfer.Request
             {
                 trans_content = new TransContent<TransSplitReqData>()
                 {
-                    trans_reqDatas = new List<TransReqDatas<TransSplitReqData>>()
+                    TransReqDatas = new List<TransReqDatas<TransSplitReqData>>()
                     {
                         new TransReqDatas<TransSplitReqData>()
                         {
-                            trans_reqData = DataList
+                            TransReqData = DataList
                         }
                     }
                     ,
-                    trans_head = new TransHead
+                    TransHead = new TransHead
                     {
-                        trans_count = DataList.Count(),
-                        trans_totalMoney = DataList.Sum(x => x.trans_money)
+                        TransCount = DataList.Count(),
+                        TransTotalMoney = DataList.Sum(x => x.TransMoney)
                     }
                 }
             };

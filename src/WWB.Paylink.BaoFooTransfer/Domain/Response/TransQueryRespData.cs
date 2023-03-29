@@ -1,22 +1,24 @@
-﻿namespace WWB.Paylink.BaoFooTransfer.Domain.Response
+﻿using Newtonsoft.Json;
+
+namespace WWB.Paylink.BaoFooTransfer.Domain.Response
 {
     public class TransQueryRespData
     {
-        public string trans_orderid { get; set; }
-        public string trans_batchid { get; set; }
-        public string trans_no { get; set; }
-        public decimal trans_money { get; set; }
-        public string to_acc_name { get; set; }
-        public string to_acc_no { get; set; }
-        public string to_acc_dept { get; set; }
-        public string trans_fee { get; set; }
-        public string state { get; set; }
-        public string trans_summary { get; set; }
-        public string trans_remark { get; set; }
-        public string trans_starttime { get; set; }
-        public string trans_endtime { get; set; }
+        [JsonProperty("trans_orderid")] public string TransOrderId { get; set; }
+        [JsonProperty("trans_batchid")] public string TransBatchId { get; set; }
+        [JsonProperty("trans_no")] public string TransNo { get; set; }
+        [JsonProperty("trans_money")] public decimal TransMoney { get; set; }
+        [JsonProperty("to_acc_name")] public string ToAccName { get; set; }
+        [JsonProperty("to_acc_no")] public string ToAccNo { get; set; }
+        [JsonProperty("to_acc_dept")] public string ToAccDept { get; set; }
+        [JsonProperty("trans_fee")] public string TransFee { get; set; }
+        [JsonProperty("state")] public int State { get; set; }
+        [JsonProperty("trans_summary")] public string TransSummary { get; set; }
+        [JsonProperty("trans_remark")] public string TransRemark { get; set; }
+        [JsonProperty("trans_starttime")] public string TransStartTime { get; set; }
+        [JsonProperty("trans_endtime")] public string TransEndTime { get; set; }
 
-        public string to_member_id { get; set; }
-        public string trans_reserved { get; set; }
+        [JsonProperty("to_member_id")] public string ToMemberId { get; set; }
+        [JsonProperty("trans_reserved")] public string TransReserved { get; set; }
     }
 }

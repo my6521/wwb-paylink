@@ -26,15 +26,15 @@ namespace WebApplicationSample.Controllers
             try
             {
                 var notify = await _client.ExecuteAsync<TransferNotify>(HttpContext.Request, _optionsAccessor.Value);
-                notify.ResultData.trans_reqDatas.ForEach(data =>
+                notify.ResultData.TransReqDatas.ForEach(data =>
                 {
-                    data.trans_reqData.ForEach(reqData =>
+                    data.TransReqData.ForEach(reqData =>
                     {
-                        _logger.LogInformation(reqData.trans_no);
+                        _logger.LogInformation(reqData.TransNo);
                     });
                 });
 
-                return Ok("ok");
+                return Ok(BaoFooTransNotifyResult.Success);
             }
             catch (Exception ex) { }
             {

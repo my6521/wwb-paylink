@@ -38,11 +38,11 @@ namespace WWB.Paylink.BaoFooTransfer.Request
             {
                 trans_content = new TransContent<RefundQueryReqData>
                 {
-                    trans_reqDatas = new List<TransReqDatas<RefundQueryReqData>>
+                    TransReqDatas = new List<TransReqDatas<RefundQueryReqData>>
                     {
                         new TransReqDatas<RefundQueryReqData>
                         {
-                            trans_reqData = new List<RefundQueryReqData>{ ReqData }
+                            TransReqData = new List<RefundQueryReqData>{ ReqData }
                         }
                     }
                 }

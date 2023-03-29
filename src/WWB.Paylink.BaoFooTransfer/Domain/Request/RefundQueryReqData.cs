@@ -1,8 +1,10 @@
-﻿namespace WWB.Paylink.BaoFooTransfer.Domain.Request
+﻿using Newtonsoft.Json;
+
+namespace WWB.Paylink.BaoFooTransfer.Domain.Request
 {
     public class RefundQueryReqData
     {
-        public string trans_btime { get; set; }
-        public string trans_etime { get; set; }
+        [JsonProperty("trans_btime")] public string TransBeginTime { get; set; }
+        [JsonProperty("trans_etime")] public string TransEndTime { get; set; }
     }
 }

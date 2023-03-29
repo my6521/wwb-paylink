@@ -1,6 +1,6 @@
-﻿using System.IO;
+﻿using Newtonsoft.Json;
+using System.IO;
 using System.Xml.Serialization;
-using Newtonsoft.Json;
 using WWB.Paylink.BaoFooTransfer.Domain;
 using WWB.Paylink.Utility.Security;
 
@@ -8,29 +8,38 @@ namespace WWB.Paylink.BaoFooTransfer.Notify
 {
     public class TransferNotify : BaseNotify
     {
-        public string member_id { get; set; }
-        public string terminal_id { get; set; }
-        public string data_type { get; set; }
-        public string data_content { get; set; }
-        public string version { get; set; }
+        [JsonProperty("member_id")]
+        public string MemberId { get; set; }
+
+        [JsonProperty("terminal_id")]
+        public string TerminalId { get; set; }
+
+        [JsonProperty("data_type")]
+        public string DataType { get; set; }
+
+        [JsonProperty("data_content")]
+        public string DataContent { get; set; }
+
+        [JsonProperty("version")]
+        public string Version { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
-        [JsonIgnore] 
+        [JsonIgnore]
         public TransContent<TransNotifyData> ResultData { get; set; }
 
         internal override void Execute(BaoFooTransOptions options)
         {
-            if (string.IsNullOrWhiteSpace(data_content)) return;
+            if (string.IsNullOrWhiteSpace(DataContent)) return;
 
             //解密data_content
-            data_content = RSAHelper.DecryptByCer(data_content, options.CerCertificate);
+            DataContent = RSAHelper.DecryptByCer(DataContent, options.CerCertificate);
 
             //xml反序列化
             var serializer = new XmlSerializer(typeof(TransContent<TransNotifyData>));
 
-            using TextReader reader = new StringReader(data_content);
+            using TextReader reader = new StringReader(DataContent);
             ResultData = serializer.Deserialize(reader) as TransContent<TransNotifyData>;
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
@@ -9,9 +10,11 @@ namespace WWB.Paylink.BaoFooTransfer.Domain
     public class TransContent<T> where T : class, new()
     {
         [XmlElement("trans_head")]
-        public TransHead trans_head { get; set; }
+        [JsonProperty("trans_head")]
+        public TransHead TransHead { get; set; }
 
         [XmlElement("trans_reqDatas")]
-        public List<TransReqDatas<T>> trans_reqDatas { get; set; }
+        [JsonProperty("trans_reqDatas")]
+        public List<TransReqDatas<T>> TransReqDatas { get; set; }
     }
 }

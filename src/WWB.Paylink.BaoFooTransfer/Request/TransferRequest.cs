@@ -43,11 +43,11 @@ namespace WWB.Paylink.BaoFooTransfer.Request
             {
                 trans_content = new TransContent<TransReqData>()
                 {
-                    trans_reqDatas = new List<TransReqDatas<TransReqData>>()
+                    TransReqDatas = new List<TransReqDatas<TransReqData>>()
                     {
                         new TransReqDatas<TransReqData>()
                         {
-                            trans_reqData = DataList
+                            TransReqData = DataList
                         }
                     }
                 }

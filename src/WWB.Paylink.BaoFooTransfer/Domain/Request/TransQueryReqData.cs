@@ -1,8 +1,10 @@
-﻿namespace WWB.Paylink.BaoFooTransfer.Domain.Request
+﻿using Newtonsoft.Json;
+
+namespace WWB.Paylink.BaoFooTransfer.Domain.Request
 {
     public class TransQueryReqData
     {
-        public string trans_batchid { get; set; }
-        public string trans_no { get; set; }
+        [JsonProperty("trans_batchid")] public string TransBatchId { get; set; }
+        [JsonProperty("trans_no")] public string TransNo { get; set; }
     }
 }

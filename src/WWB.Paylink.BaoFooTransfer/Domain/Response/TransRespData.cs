@@ -1,15 +1,17 @@
-﻿namespace WWB.Paylink.BaoFooTransfer.Domain.Response
+﻿using Newtonsoft.Json;
+
+namespace WWB.Paylink.BaoFooTransfer.Domain.Response
 {
     public class TransRespData
     {
-        public string trans_orderid { get; set; }
-        public string trans_batchid { get; set; }
-        public string trans_no { get; set; }
-        public decimal trans_money { get; set; }
-        public string to_acc_name { get; set; }
-        public string to_acc_no { get; }
-        public string to_acc_dept { get; }
-        public string trans_summary { get; set; }
-        public string trans_reserved { get; set; }
+        [JsonProperty("trans_orderid")] public string TransOrderId { get; set; }
+        [JsonProperty("trans_batchid")] public string TransBatchId { get; set; }
+        [JsonProperty("trans_no")] public string TransNo { get; set; }
+        [JsonProperty("trans_money")] public decimal TransMoney { get; set; }
+        [JsonProperty("to_acc_name")] public string ToAccName { get; set; }
+        [JsonProperty("to_acc_no")] public string ToAccNo { get; }
+        [JsonProperty("to_acc_dept")] public string ToAccDept { get; }
+        [JsonProperty("trans_summary")] public string TransSummary { get; set; }
+        [JsonProperty("trans_reserved")] public string TransReserved { get; set; }
     }
 }

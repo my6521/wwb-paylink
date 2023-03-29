@@ -29,19 +29,19 @@ namespace WebApplicationSample.Controllers
 
             reqList.Add(new TransReqData
             {
-                trans_no = DateTime.Now.ToString("yyyyMMddHHmmss"),
-                trans_money = 1.20m,
-                to_acc_name = "",
-                to_acc_no = "",
-                to_bank_name = "中国光大银行",
-                to_pro_name = "四川省",
-                trans_cnap = "",
-                to_city_name = "成都市",
-                to_acc_dept = "光华支行",
-                trans_card_id = "",
-                trans_mobile = "",
-                trans_summary = "网银转账",
-                trans_reserved = "生活消费"
+                TransNo = DateTime.Now.ToString("yyyyMMddHHmmss"),
+                TransMoney = 1.20m,
+                ToAccName = "王文兵",
+                ToAccNo = "6214921602437622",
+                ToBankName = "中国光大银行",
+                ToProName = "四川省",
+                TransCnap = "",
+                ToCityName = "成都市",
+                ToAccDept = "光华支行",
+                TransCardId = "510321198302092452",
+                TransMobile = "18981713541",
+                TransSummary = "网银转账",
+                TransReserved = "生活消费"
             });
 
             request.DataList = reqList;
@@ -59,14 +59,14 @@ namespace WebApplicationSample.Controllers
             var reqList = new List<TransQueryReqData>();
             reqList.Add(new TransQueryReqData
             {
-                trans_batchid = model.trans_batchid,
-                trans_no = model.trans_no
+                TransBatchId = model.TransBatchId,
+                TransNo = model.TransNo
             });
 
             request.DataList = reqList;
 
             var response = await _client.ExecuteAsync<TransferQueryResponse>(request, _optionsAccessor.Value);
-            if (response.trans_content.trans_head.return_code == "0000")
+            if (response.TransContent.TransHead.IsSuccess)
             {
             }
 
@@ -80,8 +80,8 @@ namespace WebApplicationSample.Controllers
 
             request.ReqData = new RefundQueryReqData
             {
-                trans_btime = model.trans_btime,
-                trans_etime = model.trans_etime
+                TransBeginTime = model.TransBeginTime,
+                TransEndTime = model.TransEndTime
             };
 
             var response = await _client.ExecuteAsync<RefundQueryResponse>(request, _optionsAccessor.Value);
@@ -98,18 +98,18 @@ namespace WebApplicationSample.Controllers
 
             reqList.Add(new TransSplitReqData
             {
-                trans_no = DateTime.Now.ToString("yyyyMMddHHmmss"),
-                trans_money = 1m,
-                to_acc_name = "",
-                to_acc_no = "",
-                to_bank_name = "中国光大银行",
-                to_pro_name = "四川省",
-                to_city_name = "成都市",
-                to_acc_dept = "光华支行",
-                trans_card_id = "",
-                trans_mobile = "",
-                trans_summary = "网银转账",
-                trans_reserved = "生活消费"
+                TransNo = DateTime.Now.ToString("yyyyMMddHHmmss"),
+                TransMoney = 1m,
+                ToAccName = "",
+                ToAccNo = "",
+                ToBankName = "中国光大银行",
+                ToProName = "四川省",
+                ToCityName = "成都市",
+                ToAccDept = "光华支行",
+                TransCardId = "",
+                TransMobile = "",
+                TransSummary = "网银转账",
+                TransReserved = "生活消费"
             });
 
             request.DataList = reqList;

@@ -1,19 +1,21 @@
-﻿namespace WWB.Paylink.BaoFooTransfer.Domain.Request
+﻿using Newtonsoft.Json;
+
+namespace WWB.Paylink.BaoFooTransfer.Domain.Request
 {
     public class TransReqData
     {
-        public string trans_no { get; set; }
-        public decimal trans_money { get; set; }
-        public string to_acc_name { get; set; }
-        public string to_acc_no { get; set; }
-        public string to_bank_name { get; set; }
-        public string to_pro_name { get; set; }
-        public string trans_cnap { get; set; }
-        public string to_city_name { get; set; }
-        public string to_acc_dept { get; set; }
-        public string trans_card_id { get; set; }
-        public string trans_mobile { get; set; }
-        public string trans_summary { get; set; }
-        public string trans_reserved { get; set; }
+        [JsonProperty("trans_no")] public string TransNo { get; set; }
+        [JsonProperty("trans_money")] public decimal TransMoney { get; set; }
+        [JsonProperty("to_acc_name")] public string ToAccName { get; set; }
+        [JsonProperty("to_acc_no")] public string ToAccNo { get; set; }
+        [JsonProperty("to_bank_name")] public string ToBankName { get; set; }
+        [JsonProperty("to_pro_name")] public string ToProName { get; set; }
+        [JsonProperty("trans_cnap")] public string TransCnap { get; set; }
+        [JsonProperty("to_city_name")] public string ToCityName { get; set; }
+        [JsonProperty("to_acc_dept")] public string ToAccDept { get; set; }
+        [JsonProperty("trans_card_id")] public string TransCardId { get; set; }
+        [JsonProperty("trans_mobile")] public string TransMobile { get; set; }
+        [JsonProperty("trans_summary")] public string TransSummary { get; set; }
+        [JsonProperty("trans_reserved")] public string TransReserved { get; set; }
     }
 }

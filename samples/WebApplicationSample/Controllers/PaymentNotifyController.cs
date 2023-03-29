@@ -25,7 +25,7 @@ namespace WebApplicationSample.Controllers
             {
                 var notify = await _client.ExecuteAsync<PaymentNotify>(HttpContext.Request, _optionsAccessor.Value);
 
-                return Ok("Success");
+                return Ok(BaoFooPayNotifyResult.Success);
             }
             catch (Exception ex) { }
             {
@@ -40,7 +40,7 @@ namespace WebApplicationSample.Controllers
             {
                 var notify = await _client.ExecuteAsync<RefundNotify>(HttpContext.Request, _optionsAccessor.Value);
 
-                return Ok("Success");
+                return Ok(BaoFooPayNotifyResult.Success);
             }
             catch (Exception ex) { }
             {
@@ -55,7 +55,7 @@ namespace WebApplicationSample.Controllers
             {
                 var notify = await _client.ExecuteAsync<WeChatPayComplaintNotify>(HttpContext.Request, _optionsAccessor.Value);
 
-                return Ok("Success");
+                return Ok(BaoFooPayNotifyResult.Success);
             }
             catch (Exception ex) { }
             {

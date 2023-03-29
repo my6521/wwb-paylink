@@ -3,6 +3,11 @@
     public class BaoFooPayOptions
     {
         /// <summary>
+        /// 应用Id，微信支付需要
+        /// </summary>
+        public string AppId { get; set; }
+
+        /// <summary>
         /// 商户号
         /// </summary>
         public string MerchantNo { get; set; }
