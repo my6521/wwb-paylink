@@ -24,7 +24,7 @@ namespace WWB.Paylink.BaoFooTransfer
             string content = string.Empty;
             if (HttpMethods.IsPost(request.Method))
             {
-                using (var reader = new StreamReader(request.Body, Encoding.UTF8, true, 2048, true))
+                using (var reader = new StreamReader(request.Body, Encoding.UTF8))
                 {
                     content = await reader.ReadToEndAsync();
                 }
