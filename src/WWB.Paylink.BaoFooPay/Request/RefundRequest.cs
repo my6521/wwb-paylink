@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using WWB.Paylink.BaoFooPay.Response;
 
 namespace WWB.Paylink.BaoFooPay.Request
 {
-    public class RefundRequest : AbstractRequest, IBaoFooPayRequest<JsapiPayResponse>
+    public class RefundRequest : AbstractRequest, IBaoFooPayRequest<RefundResponse>
     {
         /// <summary>
         /// 商户订单号
