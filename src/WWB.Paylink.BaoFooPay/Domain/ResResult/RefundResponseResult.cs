@@ -32,7 +32,7 @@ namespace WWB.Paylink.BaoFooPay.Domain.ResResult
         /// 退款状态
         /// </summary>
         [JsonProperty("orderStatus")]
-        public int OrderStatus { get; set; }
+        public string OrderStatus { get; set; }
 
         /// <summary>
         /// 完成时间
