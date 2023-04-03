@@ -13,11 +13,6 @@
         public string TerminalId { get; set; }
 
         /// <summary>
-        /// 签名混淆KEY
-        /// </summary>
-        public string Key { get; set; }
-
-        /// <summary>
         /// 商户私钥证书路径。
         /// </summary>
         public string PfxCertificate { get; set; }

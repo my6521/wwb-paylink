@@ -57,11 +57,6 @@ namespace WWB.Paylink.BaoFooTransfer
                 throw new ArgumentNullException(nameof(options));
             }
 
-            if (string.IsNullOrEmpty(options.Key))
-            {
-                throw new BaoFooTransException($"options.{nameof(BaoFooTransOptions.Key)} is Empty!");
-            }
-
             var parser = new NotifyJsonParser<T>();
 
             //反序列化

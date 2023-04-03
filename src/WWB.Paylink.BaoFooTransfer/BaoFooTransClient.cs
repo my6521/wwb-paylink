@@ -25,11 +25,6 @@ namespace WWB.Paylink.BaoFooTransfer
                 throw new ArgumentNullException(nameof(options));
             }
 
-            if (string.IsNullOrEmpty(options.Key))
-            {
-                throw new BaoFooTransException($"options.{nameof(BaoFooTransOptions.Key)} is Empty!");
-            }
-
             //获取参数
             var txtParams = request.PrimaryHandler(options);
             //获取请求url
