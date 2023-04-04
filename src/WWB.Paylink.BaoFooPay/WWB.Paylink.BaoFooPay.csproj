@@ -3,7 +3,7 @@
   <PropertyGroup>
       <TargetFramework>netcoreapp3.1</TargetFramework>
 	  <PackageId>WWB.Paylink.BaoFooPay</PackageId>
-	  <Version>1.0.0-preview17</Version>
+	  <Version>1.0.0</Version>
 	  <Authors>my6521</Authors>
 	  <Description>惠收钱SDK。</Description>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
