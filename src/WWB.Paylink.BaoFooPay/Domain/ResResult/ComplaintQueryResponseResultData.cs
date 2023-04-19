@@ -50,13 +50,13 @@ namespace WWB.Paylink.BaoFooPay.Domain.ResResult
         /// 用户投诉次数
         /// </summary>
         [JsonProperty("userComplaintTimes")]
-        public string UserComplaintTimes { get; set; }
+        public int UserComplaintTimes { get; set; }
 
         /// <summary>
         /// 是否有待回复的用户留言
         /// </summary>
         [JsonProperty("incomingUserResponse")]
-        public string IncomingUserResponse { get; set; }
+        public int IncomingUserResponse { get; set; }
 
         /// <summary>
         /// 投诉人openId
@@ -86,6 +86,6 @@ namespace WWB.Paylink.BaoFooPay.Domain.ResResult
         /// 是否全额退款
         /// </summary>
         [JsonProperty("complaintFullRefunded")]
-        public string ComplaintFullRefunded { get; set; }
+        public int ComplaintFullRefunded { get; set; }
     }
 }
