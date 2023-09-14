@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using WWB.Paylink.BaoFooTransfer.Constants;
 using WWB.Paylink.Utility;
 using WWB.Paylink.Utility.Security;
@@ -24,7 +24,7 @@ namespace WWB.Paylink.BaoFooTransfer.Request
             };
             var encryptStr = JsonConvert.SerializeObject(data);
 
-            parameters.Add(Consts.SIGN_CONTENT, RSAHelper.EncryptByPfx(encryptStr, options.PfxCertificate, options.Password));
+            parameters.Add(Consts.SIGN_CONTENT, RSA.EncryptByPfx(encryptStr, options.PfxCertificate, options.Password));
 
             return parameters;
         }

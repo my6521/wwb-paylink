@@ -40,7 +40,7 @@ namespace WWB.Paylink.BaoFooPay.Request
         };
 
             var signContent = ToolHelper.GetSignContent(parameters, options.Key);
-            var sign = SignatureHelper.EncryptByRSA(signContent, options.PfxCertificate, options.Password);
+            var sign = RSASignature.Sign(signContent, options.PfxCertificate, options.Password);
 
             parameters.Add(Consts.SIGN, sign);
 

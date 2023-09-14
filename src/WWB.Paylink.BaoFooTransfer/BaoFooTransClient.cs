@@ -35,7 +35,7 @@ namespace WWB.Paylink.BaoFooTransfer
             var client = _httpClientFactory.CreateClient(Name);
             var (body, isSuccessStatusCode) = await client.PostAsync(url, contentType, txtParams);
             //解密
-            var realContent = RSAHelper.DecryptByCer(body, options.CerCertificate);
+            var realContent = RSA.DecryptByCer(body, options.CerCertificate);
             //反序列化
             var parser = new ResponseJsonParser<T>();
             var response = parser.Parse(realContent);

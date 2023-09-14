@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WWB.Paylink.Utility.Security
 {
-    public static class SignatureHelper
+    public static class RSASignature
     {
         /// <summary>
         /// 公共方法验签
@@ -14,7 +14,7 @@ namespace WWB.Paylink.Utility.Security
         /// <param name="encryptStr"></param>
         /// <param name="signature"></param>
         /// <returns></returns>
-        public static bool VerifySignature(string pubCerPath, string encryptStr, string signature)
+        public static bool Verify(string pubCerPath, string encryptStr, string signature)
         {
             var publicKey = CertificateHelper.GetPublicKeyFromFile(pubCerPath);
             return Verify(Encoding.UTF8.GetBytes(encryptStr), publicKey, signature);
@@ -27,10 +27,10 @@ namespace WWB.Paylink.Utility.Security
         /// <param name="pfxPath"></param>
         /// <param name="priKeyPass"></param>
         /// <returns></returns>
-        public static string EncryptByRSA(string encryptStr, string pfxPath, string priKeyPass)
+        public static string Sign(string encryptStr, string pfxPath, string priKeyPass)
         {
             var privateKey = CertificateHelper.GetPrivateKeyFromFile(pfxPath, priKeyPass);
-            return Sing(Encoding.UTF8.GetBytes(encryptStr), privateKey);
+            return Sign(Encoding.UTF8.GetBytes(encryptStr), privateKey);
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace WWB.Paylink.Utility.Security
         /// <param name="data"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        private static string Sing(byte[] data, ICipherParameters parameters)
+        private static string Sign(byte[] data, ICipherParameters parameters)
         {
             var signature = SignerUtilities.GetSigner("SHA256withRSA");
             signature.Init(true, parameters);

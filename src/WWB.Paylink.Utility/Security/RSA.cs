@@ -7,7 +7,7 @@ using System.Text;
 
 namespace WWB.Paylink.Utility.Security
 {
-    public static class RSAHelper
+    public static class RSA
     {
         #region 加密
 

@@ -9,12 +9,13 @@ using System.Text;
 namespace WWB.Paylink.Utility.Security
 {
     public static class CertificateHelper
-    {/// <summary>
-     /// 读取私钥
-     /// </summary>
-     /// <param name="path">证书路径</param>
-     /// <param name="pwd">证书密码</param>
-     /// <returns></returns>
+    {
+        /// <summary>
+        /// 读取私钥
+        /// </summary>
+        /// <param name="path">证书路径</param>
+        /// <param name="pwd">证书密码</param>
+        /// <returns></returns>
         public static AsymmetricKeyParameter GetPrivateKeyFromFile(string path, string pwd)
         {
             var passwd = pwd.ToCharArray();
