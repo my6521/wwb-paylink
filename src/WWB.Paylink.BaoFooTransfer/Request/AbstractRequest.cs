@@ -24,7 +24,7 @@ namespace WWB.Paylink.BaoFooTransfer.Request
             };
             var encryptStr = JsonConvert.SerializeObject(data);
 
-            parameters.Add(Consts.SIGN_CONTENT, RSA.EncryptByPfx(encryptStr, options.PfxCertificate, options.Password));
+            parameters.Add(Consts.SIGN_CONTENT, RSAUtil.EncryptByPfx(encryptStr, options.PfxCertificate, options.Password));
 
             return parameters;
         }

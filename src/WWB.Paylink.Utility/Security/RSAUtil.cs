@@ -7,7 +7,7 @@ using System.Text;
 
 namespace WWB.Paylink.Utility.Security
 {
-    public static class RSA
+    public static class RSAUtil
     {
         #region 加密
 
@@ -21,7 +21,7 @@ namespace WWB.Paylink.Utility.Security
         {
             try
             {
-                var publicKey = CertificateHelper.GetPublicKeyFromFile(path); //读取公钥
+                var publicKey = RsaReadUtil.GetPublicKeyFromFile(path); //读取公钥
                 var string64 = Base64.Encode(Encoding.UTF8.GetBytes(data)); //Base64编码  字符编码UF8
                 var hex = Hex.ToHexString(RSAEDCore(string64, publicKey, true)); //加密并转成十六进制
                 return hex;
@@ -43,7 +43,7 @@ namespace WWB.Paylink.Utility.Security
         {
             try
             {
-                var privateKey = CertificateHelper.GetPrivateKeyFromFile(path, passwd); //读取私钥
+                var privateKey = RsaReadUtil.GetPrivateKeyFromFile(path, passwd); //读取私钥
                 var string64 = Base64.Encode(Encoding.UTF8.GetBytes(data)); //Base64编码  字符编码UF8
                 var hex = Hex.ToHexString(RSAEDCore(string64, privateKey, true)); //加密并转成十六进制
                 return hex;
@@ -69,7 +69,7 @@ namespace WWB.Paylink.Utility.Security
         {
             try
             {
-                var publicKey = CertificateHelper.GetPrivateKeyFromFile(path, passwd); //读取私钥
+                var publicKey = RsaReadUtil.GetPrivateKeyFromFile(path, passwd); //读取私钥
                 var hexByte = Hex.Decode(data);
                 var decryString = RSAEDCore(hexByte, publicKey, false);
                 return Encoding.UTF8.GetString(Base64.Decode(decryString));
@@ -90,7 +90,7 @@ namespace WWB.Paylink.Utility.Security
         {
             try
             {
-                var publicKey = CertificateHelper.GetPublicKeyFromFile(path); //读取公钥
+                var publicKey = RsaReadUtil.GetPublicKeyFromFile(path); //读取公钥
                 var hexByte = Hex.Decode(data);
                 var decryString = RSAEDCore(hexByte, publicKey, false);
                 return Encoding.UTF8.GetString(Base64.Decode(decryString));
@@ -102,6 +102,64 @@ namespace WWB.Paylink.Utility.Security
         }
 
         #endregion 解密
+
+        #region 加签
+
+        /// <summary>
+        /// 私钥加签
+        /// </summary>
+        /// <param name="encryptStr"></param>
+        /// <param name="pfxPath"></param>
+        /// <param name="priKeyPass"></param>
+        /// <returns></returns>
+        public static string SignByPfx(string encryptStr, string pfxPath, string priKeyPass)
+        {
+            var privateKey = RsaReadUtil.GetPrivateKeyFromFile(pfxPath, priKeyPass);
+            return Sign(Encoding.UTF8.GetBytes(encryptStr), privateKey);
+        }
+
+
+        /// <summary>
+        /// 公钥加签
+        /// </summary>
+        /// <param name="encryptStr"></param>
+        /// <param name="pubCerPath"></param>
+        /// <returns></returns>
+        public static string SignByCer(string encryptStr, string pubCerPath)
+        {
+            var publicKey = RsaReadUtil.GetPublicKeyFromFile(pubCerPath);
+            return Sign(Encoding.UTF8.GetBytes(encryptStr), publicKey);
+        }
+        #endregion
+
+        #region 验签
+        /// <summary>
+        /// 公钥验签
+        /// </summary>
+        /// <param name="pubCerPath"></param>
+        /// <param name="encryptStr"></param>
+        /// <param name="signature"></param>
+        /// <returns></returns>
+        public static bool VerifyByCer(string pubCerPath, string encryptStr, string signature)
+        {
+            var publicKey = RsaReadUtil.GetPublicKeyFromFile(pubCerPath);
+            return Verify(Encoding.UTF8.GetBytes(encryptStr), publicKey, signature);
+        }
+
+        /// <summary>
+        /// 私钥验签
+        /// </summary>
+        /// <param name="pfxPath"></param>
+        /// <param name="priKeyPass"></param>
+        /// <param name="encryptStr"></param>
+        /// <param name="signature"></param>
+        /// <returns></returns>
+        public static bool VerifyByPfx(string pfxPath, string priKeyPass, string encryptStr, string signature)
+        {
+            var publicKey = RsaReadUtil.GetPrivateKeyFromFile(pfxPath, priKeyPass);
+            return Verify(Encoding.UTF8.GetBytes(encryptStr), publicKey, signature);
+        }
+        #endregion
 
         #region Private Methods
 
@@ -188,6 +246,37 @@ namespace WWB.Paylink.Utility.Security
             }
 
             return (byte[])array.Clone();
+        }
+
+        /// <summary>
+        /// 用私钥对信息生成数字签名
+        /// 私钥加签
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        private static string Sign(byte[] data, ICipherParameters parameters)
+        {
+            var signature = SignerUtilities.GetSigner("SHA256withRSA");
+            signature.Init(true, parameters);
+            signature.BlockUpdate(data, 0, data.Length);
+            return Hex.ToHexString(signature.GenerateSignature());
+        }
+
+        /// <summary>
+        /// 校验数字签名
+        /// 公钥验签
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="parameters"></param>
+        /// <param name="sign"></param>
+        /// <returns></returns>
+        private static bool Verify(byte[] data, ICipherParameters parameters, string sign)
+        {
+            var signature = SignerUtilities.GetSigner("SHA256withRSA");
+            signature.Init(false, parameters);
+            signature.BlockUpdate(data, 0, data.Length);
+            return signature.VerifySignature(Hex.Decode(sign));
         }
 
         #endregion Private Methods

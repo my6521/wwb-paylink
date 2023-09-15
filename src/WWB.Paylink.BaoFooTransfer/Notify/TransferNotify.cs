@@ -52,7 +52,7 @@ namespace WWB.Paylink.BaoFooTransfer.Notify
             if (string.IsNullOrWhiteSpace(DataContent)) return;
 
             //解密data_content
-            DataContent = RSA.DecryptByCer(DataContent, options.CerCertificate);
+            DataContent = RSAUtil.DecryptByCer(DataContent, options.CerCertificate);
 
             //xml反序列化
             var serializer = new XmlSerializer(typeof(TransContent<TransNotifyData>));

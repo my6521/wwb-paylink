@@ -93,7 +93,7 @@ namespace WWB.Paylink.BaoFooPay
 
             var signContent = ToolHelper.GetSignContent(parameters, options.Key, Consts.SIGN);
 
-            if (!RSASignature.Verify(options.CerCertificate, signContent, sign))
+            if (!RSAUtil.VerifyByCer(options.CerCertificate, signContent, sign))
             {
                 throw new BaoFooPayException("sign check fail: check Sign and Data Fail!");
             }

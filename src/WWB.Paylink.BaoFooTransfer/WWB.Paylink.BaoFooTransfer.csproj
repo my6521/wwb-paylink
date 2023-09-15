@@ -5,7 +5,7 @@
         <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>enable</Nullable>
 		<PackageId>WWB.Paylink.BaoFooTransfer</PackageId>
-		<Version>1.0.2</Version>
+		<Version>1.0.3</Version>
 		<Authors>my6521</Authors>
 		<Description>宝付代付SDK。</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>

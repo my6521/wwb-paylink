@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
 	  <PackageId>WWB.Paylink.JoinPay</PackageId>
-	  <Version>1.0.2</Version>
+	  <Version>1.0.3</Version>
 	  <Authors>my6521</Authors>
 	  <Description>汇聚支付SDK</Description>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>

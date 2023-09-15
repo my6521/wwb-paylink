@@ -8,7 +8,7 @@ using System.Text;
 
 namespace WWB.Paylink.Utility.Security
 {
-    public static class CertificateHelper
+    public static class RsaReadUtil
     {
         /// <summary>
         /// 读取私钥
