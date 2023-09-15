@@ -9,6 +9,7 @@
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <RepositoryUrl>https://github.com/my6521/wwb-paylink</RepositoryUrl>
 	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
