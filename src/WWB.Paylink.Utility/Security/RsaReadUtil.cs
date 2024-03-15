@@ -3,6 +3,7 @@ using Org.BouncyCastle.Pkcs;
 using Org.BouncyCastle.Utilities.Encoders;
 using Org.BouncyCastle.X509;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
@@ -10,6 +11,8 @@ namespace WWB.Paylink.Utility.Security
 {
     public static class RsaReadUtil
     {
+        private static Dictionary<string, AsymmetricKeyParameter> m_keys = new Dictionary<string, AsymmetricKeyParameter>();
+
         /// <summary>
         /// 读取私钥
         /// </summary>
@@ -18,6 +21,11 @@ namespace WWB.Paylink.Utility.Security
         /// <returns></returns>
         public static AsymmetricKeyParameter GetPrivateKeyFromFile(string path, string pwd)
         {
+            if (m_keys.ContainsKey(path))
+            {
+                return m_keys[path];
+            }
+
             var passwd = pwd.ToCharArray();
             var store = new Pkcs12StoreBuilder().Build();
             //path路径下证书
@@ -34,6 +42,8 @@ namespace WWB.Paylink.Utility.Security
             }
 
             var keyEntry = store.GetKey(alias);
+            m_keys[path] = keyEntry.Key;
+
             return keyEntry.Key;
         }
 
@@ -45,6 +55,11 @@ namespace WWB.Paylink.Utility.Security
         /// <exception cref="Exception"></exception>
         public static AsymmetricKeyParameter GetPublicKeyFromFile(string path)
         {
+            if (m_keys.ContainsKey(path))
+            {
+                return m_keys[path];
+            }
+
             string line = null;
             var keyBuffer = new StringBuilder();
 
@@ -65,7 +80,11 @@ namespace WWB.Paylink.Utility.Security
             }
 
             var cerObj = new X509CertificateParser().ReadCertificate(Base64.Decode(keyBuffer.ToString()));
-            return cerObj.GetPublicKey();
+            var result = cerObj.GetPublicKey();
+
+            m_keys[path] = result;
+
+            return result;
         }
     }
 }
