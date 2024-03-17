@@ -32,15 +32,17 @@ namespace WWB.Paylink.BaoFooTransfer
             //获取提交类型
             var contentType = request.GetContentType();
             //提交
-            var client = _httpClientFactory.CreateClient(Name);
-            var (body, isSuccessStatusCode) = await client.PostAsync(url, contentType, txtParams);
-            //解密
-            var realContent = RSAUtil.DecryptByCer(body, options.CerCertificate);
-            //反序列化
-            var parser = new ResponseJsonParser<T>();
-            var response = parser.Parse(realContent);
+            using (var client = _httpClientFactory.CreateClient(Name))
+            {
+                var (body, isSuccessStatusCode) = await client.PostAsync(url, contentType, txtParams);
+                //解密
+                var realContent = RSAUtil.DecryptByCer(body, options.CerCertificate);
+                //反序列化
+                var parser = new ResponseJsonParser<T>();
+                var response = parser.Parse(realContent);
 
-            return response;
+                return response;
+            }
         }
     }
 }
