@@ -118,7 +118,6 @@ namespace WWB.Paylink.Utility.Security
             return Sign(Encoding.UTF8.GetBytes(encryptStr), privateKey);
         }
 
-
         /// <summary>
         /// 公钥加签
         /// </summary>
@@ -130,9 +129,11 @@ namespace WWB.Paylink.Utility.Security
             var publicKey = RsaReadUtil.GetPublicKeyFromFile(pubCerPath);
             return Sign(Encoding.UTF8.GetBytes(encryptStr), publicKey);
         }
-        #endregion
+
+        #endregion 加签
 
         #region 验签
+
         /// <summary>
         /// 公钥验签
         /// </summary>
@@ -159,7 +160,8 @@ namespace WWB.Paylink.Utility.Security
             var publicKey = RsaReadUtil.GetPrivateKeyFromFile(pfxPath, priKeyPass);
             return Verify(Encoding.UTF8.GetBytes(encryptStr), publicKey, signature);
         }
-        #endregion
+
+        #endregion 验签
 
         #region Private Methods
 

@@ -32,24 +32,25 @@ namespace WWB.Paylink.BaoFooPay
             //获取提交类型
             var contentType = request.GetContentType();
 
-            var client = _httpClientFactory.CreateClient(Name);
-
-            var (body, isSuccessStatusCode) = await client.PostAsync(url, contentType, txtParams);
-
-            if (isSuccessStatusCode)
+            using (var client = _httpClientFactory.CreateClient(Name))
             {
-                var rootResult = JsonConvert.DeserializeObject<TResponse>(body);
-                CheckResponseSign(rootResult, options);
-                rootResult.PrimaryHandler();
+                var (body, isSuccessStatusCode) = await client.PostAsync(url, contentType, txtParams);
 
-                return rootResult;
+                if (isSuccessStatusCode)
+                {
+                    var rootResult = JsonConvert.DeserializeObject<TResponse>(body);
+                    CheckResponseSign(rootResult, options);
+                    rootResult.PrimaryHandler();
+
+                    return rootResult;
+                }
+
+                var result = Activator.CreateInstance<TResponse>();
+                result.ErrorCode = "SYSTEM_INNER_ERROR";
+                result.ErrorMsg = body;
+
+                return result;
             }
-
-            var result = Activator.CreateInstance<TResponse>();
-            result.ErrorCode = "SYSTEM_INNER_ERROR";
-            result.ErrorMsg = body;
-
-            return result;
         }
 
         private void VerifyOptions(BaoFooPayOptions options)
