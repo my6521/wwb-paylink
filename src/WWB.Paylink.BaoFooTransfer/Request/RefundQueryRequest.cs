@@ -8,7 +8,7 @@ namespace WWB.Paylink.BaoFooTransfer.Request
     /// <summary>
     /// 代付交易退款查询
     /// </summary>
-    public class RefundQueryRequest : AbstractRequest, IBaoFooTransRequest<RefundQueryResponse>
+    public class RefundQueryRequest : BaseTransRequest, IBaoFooTransRequest<RefundQueryResponse>
     {
         /// <summary>
         /// 业务参数

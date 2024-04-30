@@ -6,7 +6,7 @@ using WWB.Paylink.Utility.Security;
 
 namespace WWB.Paylink.BaoFooTransfer.Request
 {
-    public abstract class AbstractRequest
+    public abstract class BaseTransRequest
     {
         public virtual string GetContentType()
         {

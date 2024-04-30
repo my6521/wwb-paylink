@@ -9,7 +9,7 @@ namespace WWB.Paylink.BaoFooTransfer.Request
     /// <summary>
     /// 代付交易接口
     /// </summary>
-    public class TransferRequest : AbstractRequest, IBaoFooTransRequest<TransferResponse>
+    public class TransferRequest : BaseTransRequest, IBaoFooTransRequest<TransferResponse>
     {
         /// <summary>
         /// 业务参数

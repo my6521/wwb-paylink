@@ -1,16 +1,22 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using WWB.Paylink.Utility;
 using WWB.Paylink.Utility.Security;
 
 namespace WWB.Paylink.BaoFooTransfer.Request
 {
-    public class UnionGWRRequest : AbstractRequest
+    public abstract class BaseUnionGWRRequest
     {
         private readonly string _serviceTp;
 
-        public UnionGWRRequest(string serviceTp)
+        public BaseUnionGWRRequest(string serviceTp)
         {
             _serviceTp = serviceTp;
+        }
+
+        public virtual string GetContentType()
+        {
+            return HttpContentType.PostFormUrlencoded;
         }
 
         public string GetRequestUrl(bool debug)

@@ -6,7 +6,7 @@ namespace WWB.Paylink.BaoFooTransfer.Request
     /// <summary>
     /// 查询单个账户余额
     /// </summary>
-    public class QueryBalanceRequest : UnionGWRRequest, IBaoFooTransRequest<QueryBalanceResponse>
+    public class QueryBalanceRequest : BaseUnionGWRRequest, IBaoFooTransRequest<QueryBalanceResponse>
     {
         private const string serviceTp = "T-1001-006-03";
 
