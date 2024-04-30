@@ -28,7 +28,6 @@ namespace WebApplicationSample.Controllers
             };
 
             var result = await _client.ExecuteAsync(request, _optionsAccessor.Value);
-
             return Ok();
         }
 
