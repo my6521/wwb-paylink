@@ -29,7 +29,6 @@ namespace WWB.Paylink.BaoFooTransfer.Request
         /// FEE_ACCOUNT:手续费账户
         /// MARKETING_ACCOUNT:营销户
         /// SPECIAL_CAPITAL_ACCOUNT:资金专户;
-        /// ALL:所有账户
         /// </summary>
         [JsonProperty("accountType")]
         public string AccountType { get; set; }
