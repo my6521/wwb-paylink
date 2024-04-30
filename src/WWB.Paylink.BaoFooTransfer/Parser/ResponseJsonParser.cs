@@ -24,7 +24,7 @@ namespace WWB.Paylink.BaoFooTransfer.Parser
                 result = Activator.CreateInstance<T>();
             }
 
-            result.Body = body;
+            result.Raw = body;
             result.Execute();
 
             return result;

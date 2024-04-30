@@ -39,24 +39,25 @@ namespace WWB.Paylink.JoinPay
             //获取提交类型
             var contentType = request.GetContentType();
 
-            var client = _httpClientFactory.CreateClient(Name);
-            var (body, isSuccessStatusCode) = await client.PostAsync(url, contentType, sortedTxtParams);
-            if (!isSuccessStatusCode)
+            using (var client = _httpClientFactory.CreateClient(Name))
             {
-                throw new JoinPayException($"SYSTEM_INNER_ERROR：{body}");
+                var (body, isSuccessStatusCode) = await client.PostAsync(url, contentType, sortedTxtParams);
+                if (!isSuccessStatusCode)
+                {
+                    throw new JoinPayException($"SYSTEM_INNER_ERROR：{body}");
+                }
+
+                var parser = new JoinPayResponseJsonParser<T>();
+                var response = parser.Parse(body);
+
+                if (request.GetNeedCheckSign())
+                {
+                    var signType = request.GetSignType();
+                    CheckResponseSign(response, options, signType);
+                }
+
+                return response;
             }
-
-            var parser = new JoinPayResponseJsonParser<T>();
-            var response = parser.Parse(body);
-
-            if (request.GetNeedCheckSign())
-            {
-                var signType = request.GetSignType();
-                CheckResponseSign(response, options, signType);
-            }
-
-            return response;
-
         }
 
         #region Check Response Method

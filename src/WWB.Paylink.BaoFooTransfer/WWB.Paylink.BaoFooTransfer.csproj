@@ -3,9 +3,9 @@
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <ImplicitUsings>disable</ImplicitUsings>
-        <Nullable>enable</Nullable>
+        <Nullable>disable</Nullable>
 		<PackageId>WWB.Paylink.BaoFooTransfer</PackageId>
-		<Version>1.0.6</Version>
+		<Version>1.0.7</Version>
 		<Authors>my6521</Authors>
 		<Description>宝付代付SDK。</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
