@@ -21,7 +21,7 @@ namespace WWB.Paylink.BaoFooTransfer.Request
             return debug ? "https://paytest.baofoo.com/baofoo-fopay/pay/BF0040002.do" : "https://public.baofoo.com/baofoo-fopay/pay/BF0040002.do";
         }
 
-        public IDictionary<string, string> PrimaryHandler(BaoFooTransOptions options)
+        protected override object GetData()
         {
             if (!DataList.Any())
             {
@@ -33,13 +33,6 @@ namespace WWB.Paylink.BaoFooTransfer.Request
                 throw new BaoFooTransException("代付交易一次处理的请求不能超过5条");
             }
 
-            var dataContent = BuidEncryptData();
-
-            return base.PrimaryHandler<object>(dataContent, options);
-        }
-
-        private object BuidEncryptData()
-        {
             return new
             {
                 trans_content = new TransContent<TransQueryReqData>()

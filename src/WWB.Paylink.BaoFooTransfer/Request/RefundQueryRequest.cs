@@ -20,20 +20,13 @@ namespace WWB.Paylink.BaoFooTransfer.Request
             return debug ? "https://paytest.baofoo.com/baofoo-fopay/pay/BF0040003.do" : "https://public.baofoo.com/baofoo-fopay/pay/BF0040003.do";
         }
 
-        public IDictionary<string, string> PrimaryHandler(BaoFooTransOptions options)
+        protected override object GetData()
         {
             if (ReqData == null)
             {
                 throw new BaoFooTransException("查询参数不能为空");
             }
 
-            var dataContent = BuidEncryptData();
-
-            return base.PrimaryHandler<object>(dataContent, options);
-        }
-
-        private object BuidEncryptData()
-        {
             return new
             {
                 trans_content = new TransContent<RefundQueryReqData>

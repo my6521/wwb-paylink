@@ -13,7 +13,7 @@ namespace WWB.Paylink.BaoFooTransfer.Request
             return HttpContentType.PostFormUrlencoded;
         }
 
-        public IDictionary<string, string> PrimaryHandler<T>(T data, BaoFooTransOptions options)
+        public IDictionary<string, string> PrimaryHandler(BaoFooTransOptions options)
         {
             var parameters = new Dictionary<string, string>
             {
@@ -22,11 +22,13 @@ namespace WWB.Paylink.BaoFooTransfer.Request
                 {"data_type", "json"},
                 {"version", "4.0.0"}
             };
-            var encryptStr = JsonConvert.SerializeObject(data);
+            var encryptStr = JsonConvert.SerializeObject(GetData());
 
             parameters.Add(Consts.SIGN_CONTENT, RSAUtil.EncryptByPfx(encryptStr, options.PfxCertificate, options.Password));
 
             return parameters;
         }
+
+        protected abstract object GetData();
     }
 }
