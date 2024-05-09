@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -37,6 +38,8 @@ namespace WWB.Paylink.BaoFooTransfer
       //提交
       using (var client = _httpClientFactory.CreateClient(Name))
       {
+        _logger.LogInformation($"请求参数：{JsonConvert.SerializeObject(txtParams)}");
+
         var (body, isSuccessStatusCode) = await client.PostAsync(url, contentType, txtParams);
         if (isSuccessStatusCode)
         {
@@ -54,7 +57,7 @@ namespace WWB.Paylink.BaoFooTransfer
         }
         else
         {
-          throw new BaoFooTransException($"请求错误");
+          throw new BaoFooTransException($"请求错误 {body}");
         }
       }
     }
