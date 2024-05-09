@@ -38,17 +38,17 @@ namespace WWB.Paylink.BaoFooTransfer
       //提交
       using (var client = _httpClientFactory.CreateClient(Name))
       {
-        _logger.LogInformation($"请求参数：{JsonConvert.SerializeObject(txtParams)}");
+        _logger.LogDebug($"请求参数：{JsonConvert.SerializeObject(txtParams)}");
 
         var (body, isSuccessStatusCode) = await client.PostAsync(url, contentType, txtParams);
         if (isSuccessStatusCode)
         {
-          _logger.LogInformation($"反馈消息：{body}");
+          _logger.LogDebug($"反馈消息：{body}");
 
           //解密
           var realContent = RSAUtil.DecryptByCer(body, options.CerCertificate);
 
-          _logger.LogInformation($"消息解密：{realContent}");
+          _logger.LogDebug($"消息解密：{realContent}");
 
           //反序列化
           var parser = new ResponseJsonParser<T>();
