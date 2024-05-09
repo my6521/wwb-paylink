@@ -5,47 +5,47 @@ using WWB.Paylink.Utility.Security;
 
 namespace WWB.Paylink.BaoFooTransfer.Request
 {
-    public abstract class BaseUnionGWRRequest
+  public abstract class BaseUnionGWRRequest
+  {
+    private readonly string _serviceTp;
+
+    public BaseUnionGWRRequest(string serviceTp)
     {
-        private readonly string _serviceTp;
+      _serviceTp = serviceTp;
+    }
 
-        public BaseUnionGWRRequest(string serviceTp)
-        {
-            _serviceTp = serviceTp;
-        }
+    public virtual string GetContentType()
+    {
+      return HttpContentType.PostFormUrlencoded;
+    }
 
-        public virtual string GetContentType()
-        {
-            return HttpContentType.PostFormUrlencoded;
-        }
+    public string GetRequestUrl(bool debug)
+    {
+      return debug ? $"https://vgw.baofoo.com/union-gw/api/{_serviceTp}/transReq.do"
+          : $"https://public.baofu.com/union-gw/api/{_serviceTp}/transReq.do";
+    }
 
-        public string GetRequestUrl(bool debug)
-        {
-            return debug ? $"https://vgw.baofoo.com/union-gw/api/{_serviceTp}/transReq.do"
-                : $"https://public.baofu.com/union-gw/api/{_serviceTp}/transReq.do";
-        }
-
-        public IDictionary<string, string> PrimaryHandler(BaoFooTransOptions options)
-        {
-            var header = new Dictionary<string, string>
+    public IDictionary<string, string> PrimaryHandler(BaoFooTransOptions options)
+    {
+      var header = new Dictionary<string, string>
             {
-                {"member_id", options.MerchantNo},
-                {"terminal_id", options.TerminalId},
+                {"memberId", options.MerchantNo},
+                {"terminalId", options.TerminalId},
                 {"serviceTp", _serviceTp},
                 {"verifyType", "1"}
             };
 
-            var contentData = new
-            {
-                header = header,
-                body = this,
-            };
+      var contentData = new
+      {
+        header = header,
+        body = this,
+      };
 
-            var jsonStr = JsonConvert.SerializeObject(contentData);
-            var encryptStr = RSAUtil.EncryptByPfx(jsonStr, options.PfxCertificate, options.Password);
-            header.Add("content", encryptStr);
+      var jsonStr = JsonConvert.SerializeObject(contentData);
+      var encryptStr = RSAUtil.EncryptByPfx(jsonStr, options.PfxCertificate, options.Password);
+      header.Add("content", encryptStr);
 
-            return header;
-        }
+      return header;
     }
+  }
 }
