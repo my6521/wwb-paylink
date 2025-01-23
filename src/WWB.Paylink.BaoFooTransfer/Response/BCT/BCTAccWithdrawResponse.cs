@@ -4,7 +4,7 @@
     {
     }
 
-    public class BCTAccWithdrawResponseBody : BCTAccResponseBodyBase
+    public class BCTAccWithdrawResponseBody : BaseUnionGWResponseBodyBase
     {
         public string transSerialNo { get; set; }
         public string contractNo { get; set; }

@@ -4,7 +4,7 @@
     {
     }
 
-    public class BCTAccWithdrawQueryResponseBody : BCTAccResponseBodyBase
+    public class BCTAccWithdrawQueryResponseBody : BaseUnionGWResponseBodyBase
     {
         public string memberId { get; set; }
         public string transSerialNo { get; set; }

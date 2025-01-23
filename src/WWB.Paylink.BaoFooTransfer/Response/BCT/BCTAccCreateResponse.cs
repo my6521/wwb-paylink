@@ -6,7 +6,7 @@ namespace WWB.Paylink.BaoFooTransfer.Response.BCT
     {
     }
 
-    public class BCTAccCreateResponseBody : BCTAccResponseBodyBase
+    public class BCTAccCreateResponseBody : BaseUnionGWResponseBodyBase
     {
         public List<BCTAccCreateResult> result { get; set; }
 

@@ -4,7 +4,7 @@
     {
     }
 
-    public class BCTAccBalanceQueryResponseBody : BCTAccResponseBodyBase
+    public class BCTAccBalanceQueryResponseBody : BaseUnionGWResponseBodyBase
     {
         public decimal availableBal { get; set; }
         public decimal pendingBal { get; set; }

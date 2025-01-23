@@ -4,7 +4,7 @@
     {
     }
 
-    public class BCTAccCardEditResponseBody : BCTAccResponseBodyBase
+    public class BCTAccCardEditResponseBody : BaseUnionGWResponseBodyBase
     {
         public string contractNo { get; set; }
     }

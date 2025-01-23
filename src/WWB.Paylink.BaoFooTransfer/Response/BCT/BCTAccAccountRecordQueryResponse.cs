@@ -4,7 +4,7 @@
     {
     }
 
-    public class BCTAccAccountRecordQueryResponseBody : BCTAccResponseBodyBase
+    public class BCTAccAccountRecordQueryResponseBody : BaseUnionGWResponseBodyBase
     {
     }
 }
