@@ -2,6 +2,7 @@ using WWB.Paylink.BaoFooPay;
 using WWB.Paylink.BaoFooPay.Extensions;
 using WWB.Paylink.BaoFooTransfer;
 using WWB.Paylink.BaoFooTransfer.Extensions;
+using WWB.Paylink.Baofu;
 
 namespace WebApplicationSample
 {
@@ -23,6 +24,9 @@ namespace WebApplicationSample
 
             builder.Services.Configure<BaoFooTransOptions>(builder.Configuration.GetSection("BaoFooTransConfig"));
             builder.Services.AddBaoFooTransClient();
+
+            builder.Services.Configure<BaofuOptions>(builder.Configuration.GetSection("BaofuConfig"));
+            builder.Services.AddBaofuClient();
 
             var app = builder.Build();
 

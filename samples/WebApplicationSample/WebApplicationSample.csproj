@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\WWB.Paylink.BaoFooPay\WWB.Paylink.BaoFooPay.csproj" />
     <ProjectReference Include="..\..\src\WWB.Paylink.BaoFooTransfer\WWB.Paylink.BaoFooTransfer.csproj" />
+    <ProjectReference Include="..\..\src\WWB.Paylink.Baofu\WWB.Paylink.Baofu.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +25,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Cert\baofoo_pub.cer">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Cert\juhe\BAOFU20240612_pri.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Cert\juhe\BAOFUP20240612_pub.cer">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Cert\juhe\密杩：123456">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Cert\MANDAO_814000473149_pub.cer">

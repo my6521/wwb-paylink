@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFramework>netcoreapp3.1</TargetFramework>
+	  <ImplicitUsings>disable</ImplicitUsings>
+	  <Nullable>disable</Nullable>
+	  <PackageId>WWB.Paylink.Baofu</PackageId>
+	  <Version>1.0.0-preview01</Version>
+	  <Authors>my6521</Authors>
+	  <Description>宝付相关API。</Description>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <RepositoryUrl>https://github.com/my6521/wwb-paylink</RepositoryUrl>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\WWB.Paylink.Utility\WWB.Paylink.Utility.csproj" />
+	</ItemGroup>
+</Project>

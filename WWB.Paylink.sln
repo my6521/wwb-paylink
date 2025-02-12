@@ -17,12 +17,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWB.Paylink.Utility", "src\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{F1732E5E-4D5A-4C6D-863E-CB83FE0710A7}"
 	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
 		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWB.Paylink.Allinpay", "src\WWB.Paylink.Allinpay\WWB.Paylink.Allinpay.csproj", "{CEC93350-D47E-49BE-9557-9F937989F26D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WWB.Paylink.JoinPay", "src\WWB.Paylink.JoinPay\WWB.Paylink.JoinPay.csproj", "{3348A355-4717-4CDF-B0A6-DA86399C4729}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWB.Paylink.JoinPay", "src\WWB.Paylink.JoinPay\WWB.Paylink.JoinPay.csproj", "{3348A355-4717-4CDF-B0A6-DA86399C4729}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWB.Paylink.Baofu", "src\WWB.Paylink.Baofu\WWB.Paylink.Baofu.csproj", "{42C3A699-79B0-4EA2-91E7-724CC4F6C832}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +57,10 @@ Global
 		{3348A355-4717-4CDF-B0A6-DA86399C4729}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3348A355-4717-4CDF-B0A6-DA86399C4729}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3348A355-4717-4CDF-B0A6-DA86399C4729}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42C3A699-79B0-4EA2-91E7-724CC4F6C832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42C3A699-79B0-4EA2-91E7-724CC4F6C832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42C3A699-79B0-4EA2-91E7-724CC4F6C832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42C3A699-79B0-4EA2-91E7-724CC4F6C832}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +72,7 @@ Global
 		{F5DD2373-0F31-4C06-A684-FF675C070606} = {4326A85C-BA11-4629-B88A-70AD513A9448}
 		{CEC93350-D47E-49BE-9557-9F937989F26D} = {4326A85C-BA11-4629-B88A-70AD513A9448}
 		{3348A355-4717-4CDF-B0A6-DA86399C4729} = {4326A85C-BA11-4629-B88A-70AD513A9448}
+		{42C3A699-79B0-4EA2-91E7-724CC4F6C832} = {4326A85C-BA11-4629-B88A-70AD513A9448}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CD0B1901-C7B0-4BA1-8578-64234741CDA7}
