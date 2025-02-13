@@ -4,9 +4,7 @@ namespace WWB.Paylink.Baofu.UnionGW.Request
 {
     public class AccWithdrawRequest : BaseUnionGWRRequest, IBaofuRequest<BaseUnionGWResponse<AccWithdrawResponse>>
     {
-        private const string serviceTp = "T-1001-013-14";
-
-        public AccWithdrawRequest() : base(serviceTp)
+        public AccWithdrawRequest() : base(ServiceTpConsts.账户提现)
         {
         }
 

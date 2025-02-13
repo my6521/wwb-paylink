@@ -36,6 +36,11 @@ namespace WWB.Paylink.Baofu.UnionGW.Response
         public string SysRespDesc { get; set; }
 
         /// <summary>
+        /// 是否请求成功
+        /// </summary>
+        public bool IsSuccess => SysRespCode == "S_0000";
+
+        /// <summary>
         ///
         /// </summary>
         [JsonIgnore]

@@ -4,9 +4,7 @@ namespace WWB.Paylink.Baofu.UnionGW.Request
 {
     public class AccCardQueryRequest : BaseUnionGWRRequest, IBaofuRequest<BaseUnionGWResponse<AccCardQueryResponse>>
     {
-        private const string serviceTp = "T-1001-013-08";
-
-        public AccCardQueryRequest() : base(serviceTp)
+        public AccCardQueryRequest() : base(ServiceTpConsts.绑卡查询)
         {
         }
 
