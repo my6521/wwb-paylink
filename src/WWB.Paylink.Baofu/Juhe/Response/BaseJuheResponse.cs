@@ -33,15 +33,26 @@ namespace WWB.Paylink.Baofu.Juhe.Response
         internal override void PrimaryHandler(BaofuOptions options)
         {
             var result = JsonConvert.DeserializeObject<BaseJuheResponse>(Raw);
+            this.returnCode = result.returnCode;
+            this.returnMsg = result.returnMsg;
+            this.merId = result.merId;
+            this.terId = result.terId;
+            this.charset = result.charset;
+            this.version = result.version;
+            this.format = result.format;
+            this.signType = result.signType;
+            this.signSn = result.signSn;
+            this.ncrptnSn = result.ncrptnSn;
+            this.dgtlEnvlp = result.dgtlEnvlp;
+            this.signStr = result.signStr;
+            this.dataContent = result.dataContent;
+
             if (result.IsSuccess)
             {
                 if (!RSAUtil.VerifyByCer(options.CerCertificate, result.dataContent, result.signStr))
                 {
                     throw new BaofuException("sign check fail: check Sign and Data Fail!");
                 }
-
-                this.returnCode = result.returnCode;
-                this.returnMsg = result.returnMsg;
 
                 this.Data = JsonConvert.DeserializeObject<T>(result.dataContent);
             }

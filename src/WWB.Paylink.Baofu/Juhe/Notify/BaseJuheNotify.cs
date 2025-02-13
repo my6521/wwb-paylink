@@ -30,7 +30,18 @@ namespace WWB.Paylink.Baofu.Juhe.Notify
             {
                 throw new BaofuException("sign check fail: check Sign and Data Fail!");
             }
-
+            this.merId = result.merId;
+            this.terId = result.terId;
+            this.charset = result.charset;
+            this.version = result.version;
+            this.format = result.format;
+            this.notifyType = result.notifyType;
+            this.signType = result.signType;
+            this.signSn = result.signSn;
+            this.ncrptnSn = result.ncrptnSn;
+            this.dgtlEnvlp = result.dgtlEnvlp;
+            this.signStr = result.signStr;
+            this.dataContent = result.dataContent;
             this.Data = JsonConvert.DeserializeObject<T>(result.dataContent);
         }
     }
