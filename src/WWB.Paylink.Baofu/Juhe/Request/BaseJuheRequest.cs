@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using WWB.Paylink.Utility;
 using WWB.Paylink.Utility.Security;
 
@@ -14,6 +15,28 @@ namespace WWB.Paylink.Baofu.Juhe.Request
         {
             _method = method;
         }
+
+        /// <summary>
+        /// 代理商商户号
+        /// </summary>
+        public string agentMerId { get; set; }
+
+        /// <summary>
+        /// 代理商终端号
+        /// </summary>
+        public string agentTerId { get; set; }
+
+        /// <summary>
+        /// 交易商户号
+        /// </summary>
+        [Required]
+        public string merId { get; set; }
+
+        /// <summary>
+        /// 交易终端号
+        /// </summary>
+        [Required]
+        public string terId { get; set; }
 
         public virtual string GetContentType()
         {

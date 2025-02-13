@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using WWB.Paylink.Baofu;
+using WWB.Paylink.Baofu.Juhe;
+using WWB.Paylink.Baofu.Juhe.Dtos;
 using WWB.Paylink.Baofu.Juhe.Request;
-using static WWB.Paylink.Baofu.Juhe.Request.JuheUnifiedOrderRequest;
 
 namespace WebApplicationSample.Controllers
 {
@@ -26,8 +27,10 @@ namespace WebApplicationSample.Controllers
         public async Task<IActionResult> UnifiedOrder()
         {
             var payExtend = new Dictionary<String, Object>();
+            payExtend.Add("sub_appid", "");
+            payExtend.Add("sub_openid", "");
             payExtend.Add("body", "测试商品");
-            payExtend.Add("area_info", "");
+            //payExtend.Add("area_info", "");
 
             var request = new JuheUnifiedOrderRequest
             {
@@ -42,7 +45,7 @@ namespace WebApplicationSample.Controllers
                 timeExpire = 10,
                 prodType = "SHARING",
                 orderType = "7",
-                payCode = "WECHAT_JSAPI",
+                payCode = PayCodes.WECHAT_JSAPI,
                 payExtend = payExtend,
                 subMchId = "",
                 notifyUrl = "",
@@ -50,7 +53,7 @@ namespace WebApplicationSample.Controllers
                 forbidCredit = 0,
                 attach = "",
                 reqReserved = "",
-                riskInfo = new RiskInfoRequest
+                riskInfo = new RiskInfoEntity
                 {
                     locationPoint = "",
                     clientIp = "181.219.133.152"
@@ -74,9 +77,9 @@ namespace WebApplicationSample.Controllers
                 originOutTradeNo = outTradeNo,
                 txnTime = DateTime.Now.ToString("yyyyMMddHHmmss"),
                 outTradeNo = "S" + DateTime.Now.ToString("yyyyMMddHHmmss"),
-                sharingDetails = new List<JuheShareAfterPayRequest.SharingDetails>
+                sharingDetails = new List<SharingDetailsEntity>
                 {
-                    new JuheShareAfterPayRequest.SharingDetails{ sharingMerId ="111",sharingAmt =100}
+                    new SharingDetailsEntity{ sharingMerId ="111",sharingAmt =100}
                 }
             };
 

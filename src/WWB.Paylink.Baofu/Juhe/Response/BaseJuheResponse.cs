@@ -18,6 +18,8 @@ namespace WWB.Paylink.Baofu.Juhe.Response
         public string dgtlEnvlp { get; set; }
         public string signStr { get; set; }
         public string dataContent { get; set; }
+
+        public bool IsSuccess => returnCode == "SUCCESS";
     }
 
     public class BaseJuheResponse<T> : BaseJuheResponse
@@ -31,7 +33,7 @@ namespace WWB.Paylink.Baofu.Juhe.Response
         internal override void PrimaryHandler(BaofuOptions options)
         {
             var result = JsonConvert.DeserializeObject<BaseJuheResponse>(Raw);
-            if (result.returnCode == "SUCCESS")
+            if (result.IsSuccess)
             {
                 if (!RSAUtil.VerifyByCer(options.CerCertificate, result.dataContent, result.signStr))
                 {

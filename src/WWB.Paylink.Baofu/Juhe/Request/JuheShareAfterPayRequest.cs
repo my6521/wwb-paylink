@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using WWB.Paylink.Baofu.Juhe.Dtos;
 using WWB.Paylink.Baofu.Juhe.Response;
 
 namespace WWB.Paylink.Baofu.Juhe.Request
@@ -9,28 +10,6 @@ namespace WWB.Paylink.Baofu.Juhe.Request
         public JuheShareAfterPayRequest() : base("share_after_pay")
         {
         }
-
-        /// <summary>
-        /// 宝付支付分配的商户号
-        /// </summary>
-        public string agentMerId { get; set; }
-
-        /// <summary>
-        /// 宝付支付分配的终端号
-        /// </summary>
-        public string agentTerId { get; set; }
-
-        /// <summary>
-        /// 交易商户号
-        /// </summary>
-        [Required]
-        public string merId { get; set; }
-
-        /// <summary>
-        /// 交易终端号
-        /// </summary>
-        [Required]
-        public string terId { get; set; }
 
         /// <summary>
         /// 与商户订单号对应的宝付侧唯一订单号，推荐传入此值。originTradeNo和originOutTradeNo必须二选一上送
@@ -63,20 +42,6 @@ namespace WWB.Paylink.Baofu.Juhe.Request
         /// JSON数组 “sharingDetails”:[{“sharingAmt”:100,”sharingMerId”:”100000”},{“sharingAmt”:200,”sharingMerId”:”100001”}]
         /// </summary>
         [Required]
-        public List<SharingDetails> sharingDetails { get; set; }
-
-        public class SharingDetails
-        {
-            /// <summary>
-            /// 宝付支付分配的商户号
-            /// </summary>
-            [Required]
-            public string sharingMerId { get; set; }
-
-            /// <summary>
-            /// 分账金额，单位：分，如：1元则传入100
-            /// </summary>
-            public int sharingAmt { get; set; }
-        }
+        public List<SharingDetailsEntity> sharingDetails { get; set; }
     }
 }

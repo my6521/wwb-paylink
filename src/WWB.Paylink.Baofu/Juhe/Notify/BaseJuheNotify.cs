@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using WWB.Paylink.Baofu.Juhe.Response;
 using WWB.Paylink.Utility.Security;
 
 namespace WWB.Paylink.Baofu.Juhe.Notify
@@ -26,16 +25,13 @@ namespace WWB.Paylink.Baofu.Juhe.Notify
 
         internal override void PrimaryHandler(BaofuOptions options)
         {
-            var result = JsonConvert.DeserializeObject<BaseJuheResponse>(Raw);
-            if (result.returnCode == "SUCCESS")
+            var result = JsonConvert.DeserializeObject<BaseJuheNotify>(Raw);
+            if (!RSAUtil.VerifyByCer(options.CerCertificate, result.dataContent, result.signStr))
             {
-                if (!RSAUtil.VerifyByCer(options.CerCertificate, result.dataContent, result.signStr))
-                {
-                    throw new BaofuException("sign check fail: check Sign and Data Fail!");
-                }
-
-                this.Data = JsonConvert.DeserializeObject<T>(result.dataContent);
+                throw new BaofuException("sign check fail: check Sign and Data Fail!");
             }
+
+            this.Data = JsonConvert.DeserializeObject<T>(result.dataContent);
         }
     }
 }

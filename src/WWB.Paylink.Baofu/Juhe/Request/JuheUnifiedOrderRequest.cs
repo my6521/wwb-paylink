@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using WWB.Paylink.Baofu.Juhe.Dtos;
 using WWB.Paylink.Baofu.Juhe.Response;
 
 namespace WWB.Paylink.Baofu.Juhe.Request
@@ -9,28 +10,6 @@ namespace WWB.Paylink.Baofu.Juhe.Request
         public JuheUnifiedOrderRequest() : base("unified_order")
         {
         }
-
-        /// <summary>
-        /// 代理商商户号
-        /// </summary>
-        public string agentMerId { get; set; }
-
-        /// <summary>
-        /// 代理商终端号
-        /// </summary>
-        public string agentTerId { get; set; }
-
-        /// <summary>
-        /// 交易商户号
-        /// </summary>
-        [Required]
-        public string merId { get; set; }
-
-        /// <summary>
-        /// 交易终端号
-        /// </summary>
-        [Required]
-        public string terId { get; set; }
 
         /// <summary>
         /// 交易商户订单号。商户系统内部订单号，同一个商户号下唯一
@@ -121,41 +100,12 @@ namespace WWB.Paylink.Baofu.Juhe.Request
         /// <summary>
         /// 营销信息
         /// </summary>
-        public MktInfoRequest mktInfo { get; set; }
+        public MktInfoEntity mktInfo { get; set; }
 
         /// <summary>
         /// 风控信息
         /// </summary>
         [Required]
-        public RiskInfoRequest riskInfo { get; set; }
-
-        /// <summary>
-        ///
-        /// </summary>
-        public class MktInfoRequest
-        {
-            /// <summary>
-            /// 宝付支付分配的商户号
-            /// </summary>
-            public string mktMerId { get; set; }
-
-            /// <summary>
-            /// 营销金额，单位：分，如：1元则传入100
-            /// </summary>
-            public string mktAmt { get; set; }
-        }
-
-        public class RiskInfoRequest
-        {
-            /// <summary>
-            /// 付款用户ip地址
-            /// </summary>
-            public string clientIp { get; set; }
-
-            /// <summary>
-            /// 包含经度和纬度，英文逗号分隔
-            /// </summary>
-            public string locationPoint { get; set; }
-        }
+        public RiskInfoEntity riskInfo { get; set; }
     }
 }
