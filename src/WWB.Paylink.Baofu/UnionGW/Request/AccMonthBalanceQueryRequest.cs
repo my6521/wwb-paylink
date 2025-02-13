@@ -2,6 +2,9 @@
 
 namespace WWB.Paylink.Baofu.UnionGW.Request
 {
+    /// <summary>
+    /// 月终余额查询
+    /// </summary>
     public class AccMonthBalanceQueryRequest : BaseUnionGWRRequest, IBaofuRequest<BaseUnionGWResponse<AccMonthBalanceQueryResponse>>
     {
         public AccMonthBalanceQueryRequest() : base(ServiceTpConsts.月终余额查询)

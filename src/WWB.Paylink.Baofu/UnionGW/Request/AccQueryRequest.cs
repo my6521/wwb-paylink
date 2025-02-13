@@ -2,6 +2,9 @@
 
 namespace WWB.Paylink.Baofu.UnionGW.Request
 {
+    /// <summary>
+    /// 开户信息查询
+    /// </summary>
     public class AccQueryRequest : BaseUnionGWRRequest, IBaofuRequest<BaseUnionGWResponse<AccQueryResponse>>
     {
         public AccQueryRequest() : base(ServiceTpConsts.开户信息查询)

@@ -3,6 +3,9 @@ using WWB.Paylink.Baofu.UnionGW.Response;
 
 namespace WWB.Paylink.Baofu.UnionGW.Request
 {
+    /// <summary>
+    /// 余额查询
+    /// </summary>
     public class AccBalanceQueryRequest : BaseUnionGWRRequest, IBaofuRequest<BaseUnionGWResponse<AccBalanceQueryResponse>>
     {
         public AccBalanceQueryRequest() : base(ServiceTpConsts.余额查询)

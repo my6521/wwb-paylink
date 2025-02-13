@@ -2,6 +2,9 @@
 
 namespace WWB.Paylink.Baofu.UnionGW.Request
 {
+    /// <summary>
+    /// 账户提现
+    /// </summary>
     public class AccWithdrawRequest : BaseUnionGWRRequest, IBaofuRequest<BaseUnionGWResponse<AccWithdrawResponse>>
     {
         public AccWithdrawRequest() : base(ServiceTpConsts.账户提现)

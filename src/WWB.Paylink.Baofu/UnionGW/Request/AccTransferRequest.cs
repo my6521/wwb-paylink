@@ -2,6 +2,9 @@
 
 namespace WWB.Paylink.Baofu.UnionGW.Request
 {
+    /// <summary>
+    /// 账户间转账
+    /// </summary>
     public class AccTransferRequest : BaseUnionGWRRequest, IBaofuRequest<BaseUnionGWResponse<AccTransferResponse>>
     {
         public AccTransferRequest() : base(ServiceTpConsts.账户间转账)

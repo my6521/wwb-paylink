@@ -2,6 +2,9 @@
 
 namespace WWB.Paylink.Baofu.UnionGW.Request
 {
+    /// <summary>
+    /// 修改绑定卡信息
+    /// </summary>
     public class AccCardEditRequest : BaseUnionGWRRequest, IBaofuRequest<BaseUnionGWResponse<AccCardEditResponse>>
     {
         public AccCardEditRequest() : base(ServiceTpConsts.修改绑定卡信息)
