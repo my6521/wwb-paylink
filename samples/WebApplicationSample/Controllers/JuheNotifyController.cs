@@ -5,6 +5,9 @@ using WWB.Paylink.Baofu.Juhe.Notify;
 
 namespace WebApplicationSample.Controllers
 {
+    /// <summary>
+    /// 聚合支付回调
+    /// </summary>
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class JuheNotifyController : ControllerBase
