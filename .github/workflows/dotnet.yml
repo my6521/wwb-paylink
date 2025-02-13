@@ -22,13 +22,17 @@ jobs:
       run: dotnet restore
 
     - name: 构建
-      run: dotnet build --configuration Release --no-restore
+      run: |
+        dotnet build ./src/WWB.Paylink.Utility/WWB.Paylink.Utility.csproj -c Release --no-restore
+        dotnet build ./src/WWB.Paylink.Baofu/WWB.Paylink.Baofu.csproj -c Release --no-restore
+        dotnet build ./src/WWB.Paylink.BaoFooPay/WWB.Paylink.BaoFooPay.csproj -c Release --no-restore
+        dotnet build ./src/WWB.Paylink.JoinPay/WWB.Paylink.JoinPay.csproj -c Release --no-restore
 
     - name: 打包
       run: |
+        dotnet pack ./src/WWB.Paylink.Utility/WWB.Paylink.Utility.csproj
         dotnet pack ./src/WWB.Paylink.Baofu/WWB.Paylink.Baofu.csproj
         dotnet pack ./src/WWB.Paylink.BaoFooPay/WWB.Paylink.BaoFooPay.csproj
-        dotnet pack ./src/WWB.Paylink.Utility/WWB.Paylink.Utility.csproj
         dotnet pack ./src/WWB.Paylink.JoinPay/WWB.Paylink.JoinPay.csproj
 
     - name: 发布生成包到nuget
