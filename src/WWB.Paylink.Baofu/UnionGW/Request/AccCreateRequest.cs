@@ -21,7 +21,7 @@ namespace WWB.Paylink.Baofu.UnionGW.Request
         /// <summary>
         /// 开户具体信息根据类型不同,信息不同,现只支持单笔开户
         /// </summary>
-        public object accInfo { get; set; }
+        public AccInfo accInfo { get; set; }
 
         /// <summary>
         /// 开户结果通知地址
@@ -33,7 +33,7 @@ namespace WWB.Paylink.Baofu.UnionGW.Request
         /// </summary>
         public string businessType { get; set; } = "BCT2.0";
 
-        public class PersonAccInfo
+        public abstract class AccInfo
         {
             /// <summary>
             /// 请求流水号
@@ -44,7 +44,10 @@ namespace WWB.Paylink.Baofu.UnionGW.Request
             /// 登录号,商户自定义要求全局唯一，长度11位以上
             /// </summary>
             public string loginNo { get; set; }
+        }
 
+        public class PersonAccInfo : AccInfo
+        {
             /// <summary>
             /// 客户名称与持卡人姓名一致
             /// </summary>
@@ -96,18 +99,8 @@ namespace WWB.Paylink.Baofu.UnionGW.Request
             public string qualificationTransSerialNo { get; set; }
         }
 
-        public class CompanyAccInfo
+        public class CompanyAccInfo : AccInfo
         {
-            /// <summary>
-            /// 请求流水号
-            /// </summary>
-            public string transSerialNo { get; set; }
-
-            /// <summary>
-            /// 登录号,商户自定义要求全局唯一，长度11位以上
-            /// </summary>
-            public string loginNo { get; set; }
-
             /// <summary>
             /// 邮箱
             /// </summary>
