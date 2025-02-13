@@ -1,4 +1,6 @@
-﻿namespace WWB.Paylink.Baofu.Juhe.Notify
+﻿using System.Collections.Generic;
+
+namespace WWB.Paylink.Baofu.Juhe.Notify
 {
     public class JuheUnifiedOrderNotify : BaseJuheNotify<JuheUnifiedOrderNotifyData>
     {
@@ -89,7 +91,7 @@
         /// <summary>
         /// 渠道返回参数
         /// </summary>
-        public string chlRetParam { get; set; }
+        public Dictionary<string, object> chlRetParam { get; set; }
 
         /// <summary>
         /// 清算日期

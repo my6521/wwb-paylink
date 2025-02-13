@@ -48,7 +48,7 @@ namespace WebApplicationSample.Controllers
                 payCode = PayCodes.WECHAT_JSAPI,
                 payExtend = payExtend,
                 subMchId = "",
-                notifyUrl = "",
+                notifyUrl = "http://125.71.135.181:7658/api/JuheNotify/PayNotify",
                 pageUrl = "",
                 forbidCredit = 0,
                 attach = "",
