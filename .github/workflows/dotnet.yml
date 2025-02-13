@@ -38,7 +38,6 @@ jobs:
     - name: 发布生成包到nuget
       run: |
         dotnet nuget push ./src/WWB.Paylink.BaoFooPay/bin/Release/*.nupkg -s https://api.nuget.org/v3/index.json --skip-duplicate -k ${{ secrets.NUGETKEY }}
-        dotnet nuget push ./src/WWB.Paylink.BaoFooTransfer/bin/Release/*.nupkg -s https://api.nuget.org/v3/index.json --skip-duplicate -k ${{ secrets.NUGETKEY }}
         dotnet nuget push ./src/WWB.Paylink.Utility/bin/Release/*.nupkg -s https://api.nuget.org/v3/index.json --skip-duplicate -k ${{ secrets.NUGETKEY }}
         dotnet nuget push ./src/WWB.Paylink.JoinPay/bin/Release/*.nupkg -s https://api.nuget.org/v3/index.json --skip-duplicate -k ${{ secrets.NUGETKEY }}
         dotnet nuget push ./src/WWB.Paylink.Baofu/bin/Release/*.nupkg -s https://api.nuget.org/v3/index.json --skip-duplicate -k ${{ secrets.NUGETKEY }}
