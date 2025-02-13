@@ -2,7 +2,7 @@
 {
     public class BaofuNotifyResult
     {
-        public const string Ok = "ok";
+        public const string Ok = "OK";
         public const string Success = "SUCCESS";
     }
 }

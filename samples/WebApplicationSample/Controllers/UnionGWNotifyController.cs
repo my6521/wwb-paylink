@@ -25,7 +25,7 @@ namespace WebApplicationSample.Controllers
             {
                 var notify = await _client.ExecuteAsync<AccCreateNotify>(HttpContext.Request, _optionsAccessor.Value);
 
-                return Ok("OK");
+                return Ok(BaofuNotifyResult.Ok);
             }
             catch (Exception ex) { }
             {
@@ -40,7 +40,7 @@ namespace WebApplicationSample.Controllers
             {
                 var notify = await _client.ExecuteAsync<AccWithdrawNotify>(HttpContext.Request, _optionsAccessor.Value);
 
-                return Ok("OK");
+                return Ok(BaofuNotifyResult.Ok);
             }
             catch (Exception ex) { }
             {

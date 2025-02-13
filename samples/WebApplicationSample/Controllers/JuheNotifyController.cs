@@ -31,7 +31,7 @@ namespace WebApplicationSample.Controllers
                 {
                 }
 
-                return Ok("OK");
+                return Ok(BaofuNotifyResult.Ok);
             }
             catch (Exception ex) { }
             {
@@ -52,7 +52,7 @@ namespace WebApplicationSample.Controllers
                 {
                 }
 
-                return Ok("OK");
+                return Ok(BaofuNotifyResult.Ok);
             }
             catch (Exception ex) { }
             {
@@ -73,7 +73,7 @@ namespace WebApplicationSample.Controllers
                 {
                 }
 
-                return Ok("OK");
+                return Ok(BaofuNotifyResult.Ok);
             }
             catch (Exception ex) { }
             {
