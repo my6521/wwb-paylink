@@ -8,6 +8,7 @@
         public const string 绑卡查询 = "T-1001-013-08";
         public const string 余额查询 = "T-1001-013-06";
         public const string 收支明细查询 = "T-1001-013-11";
+        public const string 月终余额查询 = "T-1001-013-12";
         public const string 账户提现 = "T-1001-013-14";
         public const string 账户提现查询 = "T-1001-013-15";
         public const string 账户间转账 = "T-1001-013-16";
