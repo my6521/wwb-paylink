@@ -21,9 +21,9 @@ namespace WWB.Paylink.Baofu.UnionGW.Request
         /// <summary>
         /// 开户具体信息根据类型不同,信息不同,现只支持单笔修改
         /// </summary>
-        public object accInfo { get; set; }
+        public AccCardInfo accInfo { get; set; }
 
-        public class PersonCardInfo
+        public abstract class AccCardInfo
         {
             /// <summary>
             /// 客户账户号
@@ -36,33 +36,21 @@ namespace WWB.Paylink.Baofu.UnionGW.Request
             public string transSerialNo { get; set; }
 
             /// <summary>
-            /// 卡号
+            /// 卡号 (修改卡号时必传)
             /// </summary>
             public string cardNo { get; set; }
+        }
 
+        public class PersonCardInfo : AccCardInfo
+        {
             /// <summary>
             /// 银行预留手机号
             /// </summary>
             public string mobileNo { get; set; }
         }
 
-        public class CompanyCardInfo
+        public class CompanyCardInfo : AccCardInfo
         {
-            /// <summary>
-            /// 客户账户号
-            /// </summary>
-            public string contractNo { get; set; }
-
-            /// <summary>
-            /// 请求流水号
-            /// </summary>
-            public string transSerialNo { get; set; }
-
-            /// <summary>
-            /// 卡号 (修改卡号时必传)
-            /// </summary>
-            public string cardNo { get; set; }
-
             /// <summary>
             /// 银行名称 (修改卡号时必传
             /// </summary>
