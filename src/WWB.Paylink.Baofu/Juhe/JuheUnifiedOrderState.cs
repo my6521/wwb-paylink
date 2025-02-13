@@ -3,7 +3,7 @@
     /// <summary>
     /// 支付返回状态
     /// </summary>
-    public class UnifiedOrderState
+    public class JuheUnifiedOrderState
     {
         /// <summary>
         /// 交易成功，支付成功的订单再次发起支付依然返回支付成功，商户侧需做幂等处理

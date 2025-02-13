@@ -1,27 +1,27 @@
 ﻿namespace WWB.Paylink.Baofu.Juhe
 {
     /// <summary>
-    /// 退款返回状态
+    /// 分账返回状态
     /// </summary>
-    public class RefundState
+    public class JuheShareState
     {
         /// <summary>
-        /// 退款成功
+        /// 分账成功
         /// </summary>
         public const string SUCCESS = "SUCCESS";
 
         /// <summary>
-        /// 退款受理成功
+        /// 分账处理中
         /// </summary>
-        public const string REFUND = "REFUND";
+        public const string PROCESSING = "PROCESSING";
 
         /// <summary>
-        /// 退款失败
+        /// 取消分账
         /// </summary>
-        public const string REFUND_ERROR = "REFUND_ERROR";
+        public const string CANCELED = "CANCELED";
 
         /// <summary>
-        /// 退款异常，返回此状态的退款订单，请稍后发起查询。
+        /// 分账请求异常
         /// </summary>
         public const string ABNORMAL = "ABNORMAL";
     }

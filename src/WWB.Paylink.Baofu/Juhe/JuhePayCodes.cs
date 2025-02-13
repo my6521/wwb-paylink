@@ -1,6 +1,6 @@
 ﻿namespace WWB.Paylink.Baofu.Juhe
 {
-    public static class PayCodes
+    public static class JuhePayCodes
     {
         /// <summary>
         /// 微信JSAPI

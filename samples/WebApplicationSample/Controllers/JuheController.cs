@@ -45,7 +45,7 @@ namespace WebApplicationSample.Controllers
                 timeExpire = 10,
                 prodType = "SHARING",
                 orderType = "7",
-                payCode = PayCodes.WECHAT_JSAPI,
+                payCode = JuhePayCodes.WECHAT_JSAPI,
                 payExtend = payExtend,
                 subMchId = "",
                 notifyUrl = "http://125.71.135.181:7658/api/JuheNotify/PayNotify",
