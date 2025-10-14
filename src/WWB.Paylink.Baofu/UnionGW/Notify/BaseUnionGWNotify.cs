@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 using WWB.Paylink.Utility.Security;
 
 namespace WWB.Paylink.Baofu.UnionGW.Notify
@@ -9,12 +10,14 @@ namespace WWB.Paylink.Baofu.UnionGW.Notify
         /// 商户号
         /// </summary>
         [JsonProperty("member_id")]
+        [Required]
         public string MemberId { get; set; }
 
         /// <summary>
         /// 终端号
         /// </summary>
         [JsonProperty("terminal_id")]
+        [Required]
         public string TerminalId { get; set; }
 
         /// <summary>

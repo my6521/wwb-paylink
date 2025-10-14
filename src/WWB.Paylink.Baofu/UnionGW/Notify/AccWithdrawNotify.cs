@@ -1,4 +1,6 @@
-﻿namespace WWB.Paylink.Baofu.UnionGW.Notify
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WWB.Paylink.Baofu.UnionGW.Notify
 {
     public class AccWithdrawNotify : BaseUnionGWNotify<AccWithdrawNotifyData>
     { }
@@ -11,26 +13,31 @@
         /// <summary>
         /// 提现子商户号
         /// </summary>
+        [Required]
         public string contractNo { get; set; }
 
         /// <summary>
         /// 提现订单号
         /// </summary>
+        [Required]
         public string orderId { get; set; }
 
         /// <summary>
         /// 商户订单号
         /// </summary>
+        [Required]
         public string transSerialNo { get; set; }
 
         /// <summary>
         /// 转账金额,单位：元
         /// </summary>
+        [Required]
         public decimal transMoney { get; set; }
 
         /// <summary>
         /// 费用,单位：元
         /// </summary>
+        [Required]
         public decimal transFee { get; set; }
 
         /// <summary>
@@ -45,16 +52,17 @@
         /// 2:处理中
         /// 3:提现退回 注：此状态只在提现时上送版本号4.2.0返回
         /// </summary>
+        [Required]
         public string state { get; set; }
 
         /// <summary>
         /// 失败原因
         /// </summary>
-        public string transRemark { get; set; }
+        public string? transRemark { get; set; }
 
         /// <summary>
         /// 保留域
         /// </summary>
-        public string reqReserved { get; set; }
+        public string? reqReserved { get; set; }
     }
 }

@@ -5,6 +5,9 @@ using WWB.Paylink.Baofu.Juhe.Response;
 
 namespace WWB.Paylink.Baofu.Juhe.Request
 {
+    /// <summary>
+    ///
+    /// </summary>
     public class JuheUnifiedOrderRequest : BaseJuheRequest, IBaofuRequest<BaseJuheResponse<JuheUnifiedOrderResponse>>
     {
         public JuheUnifiedOrderRequest() : base("unified_order")
@@ -20,34 +23,37 @@ namespace WWB.Paylink.Baofu.Juhe.Request
         /// <summary>
         /// 用户实际付款金额。交易金额，单位：分，如：1元则传入100
         /// </summary>
+        [Required]
         public int txnAmt { get; set; }
 
         /// <summary>
         /// 交易时间。如20210315155012
         /// </summary>
+        [Required]
         public string txnTime { get; set; }
 
         /// <summary>
         /// 订单总金额
         /// </summary>
+        [Required]
         public int totalAmt { get; set; }
 
         /// <summary>
-        /// 订单支付的有效时间 单位：分钟
+        /// 订单支付的有效时间，单位：分钟，不传此参数则宝付支付默认有效时间30分钟，允许最大时效7天
         /// </summary>
-        public int timeExpire { get; set; }
+        public int timeExpire { get; set; } = 30;
 
         /// <summary>
-        /// 产品类型 SHARING:分账产品,ORDINARY:普通产品
+        /// 产品类型 SHARING:分账产品（订单支付成功后必须在365天内完成分账，过期无法分账，需退款）,ORDINARY:普通产品。
         /// </summary>
         [Required]
-        public string prodType { get; set; }
+        public string prodType { get; set; } = "SHARING";
 
         /// <summary>
-        /// 订单类型
+        /// 订单类型 宝财通2.0模式必传。传值:7
         /// </summary>
         [Required]
-        public string orderType { get; set; }
+        public string orderType { get; set; } = "7";
 
         /// <summary>
         /// 支付方式
@@ -58,7 +64,7 @@ namespace WWB.Paylink.Baofu.Juhe.Request
         /// QUICK_PASS_NATIVE_JS 云闪付主扫JS
         /// </summary>
         [Required]
-        public string payCode { get; set; }
+        public string payCode { get; set; } = "WECHAT_JSAPI";
 
         /// <summary>
         /// 支付方式属性。微信公众号为例：{“sub_openid”:”1231231231”,”sub_appid”:”1231231123”,”body”:”特价手机”}
@@ -85,7 +91,7 @@ namespace WWB.Paylink.Baofu.Juhe.Request
         /// <summary>
         /// 禁止贷记卡支付 1：禁止 0：不禁止不传,默认为0
         /// </summary>
-        public int forbidCredit { get; set; }
+        public int forbidCredit { get; set; } = 1;
 
         /// <summary>
         /// 附加字段

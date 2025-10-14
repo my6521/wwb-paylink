@@ -16,12 +16,12 @@ namespace WWB.Paylink.Baofu.UnionGW.Response
             /// <summary>
             /// 错误码
             /// </summary>
-            public string errorCode { get; set; }
+            public string? errorCode { get; set; }
 
             /// <summary>
             /// 错误原因
             /// </summary>
-            public string errorMsg { get; set; }
+            public string? errorMsg { get; set; }
 
             /// <summary>
             /// 请求流水号
@@ -41,7 +41,7 @@ namespace WWB.Paylink.Baofu.UnionGW.Response
             /// <summary>
             /// 商户客户号
             /// </summary>
-            public string contractNo { get; set; }
+            public string? contractNo { get; set; }
         }
     }
 }
