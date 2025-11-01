@@ -79,7 +79,7 @@ namespace WebApplicationSample.Controllers
                 outTradeNo = "S" + DateTime.Now.ToString("yyyyMMddHHmmss"),
                 sharingDetails = new List<SharingDetailsEntity>
                 {
-                    new SharingDetailsEntity{ sharingMerId ="111",sharingAmt =100}
+                    new SharingDetailsEntity{ sharingMerId ="CP610000000000335268",sharingAmt =100}
                 }
             };
 

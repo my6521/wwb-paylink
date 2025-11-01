@@ -1,13 +1,11 @@
-﻿using System.Collections.Generic;
-
-namespace WWB.Paylink.Baofu.UnionGW.Response
+﻿namespace WWB.Paylink.Baofu.UnionGW.Response
 {
     public class AccQueryResponse : BaseUnionGWResponseBody
     {
         /// <summary>
         /// 账户信息列表
         /// </summary>
-        public List<AccQueryResult> result { get; set; }
+        public AccQueryResult result { get; set; }
 
         public class AccQueryResult
         {

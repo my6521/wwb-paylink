@@ -54,12 +54,12 @@ namespace WWB.Paylink.Baofu.Juhe.Notify
         public int succAmt { get; set; }
 
         /// <summary>
-        /// 支付手续费
+        /// 支付手续费。单位：分，订单状态为成功时才有值
         /// </summary>
         public int feeAmt { get; set; }
 
         /// <summary>
-        /// 分期手续费
+        /// 分期手续费。单位：分，商户使用分期产品支付时，订单状态为成功时有值
         /// </summary>
         public int instFeeAmt { get; set; }
 

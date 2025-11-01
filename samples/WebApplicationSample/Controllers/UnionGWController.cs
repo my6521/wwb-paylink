@@ -59,7 +59,7 @@ namespace WebApplicationSample.Controllers
                     mobileNo = "13567796514",
                     cardUserName = "双彦飞",
                 },
-                noticeUrl = "http://125.71.135.181:7658/api/UnionGWNotify/AccCreateNotify"
+                noticeUrl = "171.213.171.150:7658/api/UnionGWNotify/AccCreateNotify"
             };
             var result = await _client.ExecuteAsync(request, _optionsAccessor.Value);
 
@@ -149,7 +149,7 @@ namespace WebApplicationSample.Controllers
         {
             var request = new AccBalanceQueryRequest
             {
-                contractNo = "CP690000000000020658",
+                contractNo = "CP610000000000335268",
                 accType = 1,
             };
             var result = await _client.ExecuteAsync(request, _optionsAccessor.Value);
@@ -162,7 +162,7 @@ namespace WebApplicationSample.Controllers
         {
             var request = new AccAccountRecordQueryRequest
             {
-                contractNo = "CP690000000000020658",
+                contractNo = "CP610000000000335268",
                 startTime = "2025-02-01 00:00:00",
                 endTime = "2025-02-14 00:00:00",
                 pageNum = 1,

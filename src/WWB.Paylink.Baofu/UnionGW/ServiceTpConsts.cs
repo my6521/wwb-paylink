@@ -11,7 +11,7 @@
         public const string 月终余额查询 = "T-1001-013-12";
         public const string 账户提现 = "T-1001-013-14";
         public const string 账户提现查询 = "T-1001-013-15";
-        public const string 账户间转账 = "T-1001-013-16";
+        public const string 账户间转账 = "T-1001-013-13";
         public const string 账户间转账查询 = "T-1001-013-10";
     }
 }

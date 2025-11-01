@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWB.Paylink.JoinPay", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWB.Paylink.Baofu", "src\WWB.Paylink.Baofu\WWB.Paylink.Baofu.csproj", "{42C3A699-79B0-4EA2-91E7-724CC4F6C832}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WWB.Paylink.BaoFooTransfer", "src\WWB.Paylink.BaoFooTransfer\WWB.Paylink.BaoFooTransfer.csproj", "{8100BD8B-584A-044A-8944-60374BEB263C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{42C3A699-79B0-4EA2-91E7-724CC4F6C832}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42C3A699-79B0-4EA2-91E7-724CC4F6C832}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42C3A699-79B0-4EA2-91E7-724CC4F6C832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8100BD8B-584A-044A-8944-60374BEB263C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8100BD8B-584A-044A-8944-60374BEB263C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8100BD8B-584A-044A-8944-60374BEB263C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8100BD8B-584A-044A-8944-60374BEB263C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +72,7 @@ Global
 		{CEC93350-D47E-49BE-9557-9F937989F26D} = {4326A85C-BA11-4629-B88A-70AD513A9448}
 		{3348A355-4717-4CDF-B0A6-DA86399C4729} = {4326A85C-BA11-4629-B88A-70AD513A9448}
 		{42C3A699-79B0-4EA2-91E7-724CC4F6C832} = {4326A85C-BA11-4629-B88A-70AD513A9448}
+		{8100BD8B-584A-044A-8944-60374BEB263C} = {4326A85C-BA11-4629-B88A-70AD513A9448}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CD0B1901-C7B0-4BA1-8578-64234741CDA7}

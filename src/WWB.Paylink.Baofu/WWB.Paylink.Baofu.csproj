@@ -4,8 +4,9 @@
 	<TargetFramework>netcoreapp3.1</TargetFramework>
 	  <ImplicitUsings>disable</ImplicitUsings>
 	  <Nullable>disable</Nullable>
+	  <NoWarn>1701;1702;1591</NoWarn>
 	  <PackageId>WWB.Paylink.Baofu</PackageId>
-	  <Version>1.0.0-preview01</Version>
+	  <Version>1.0.0-preview02</Version>
 	  <Authors>my6521</Authors>
 	  <Description>宝财通相关API。</Description>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
